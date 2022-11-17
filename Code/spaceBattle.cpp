@@ -7,9 +7,6 @@ using namespace sf;
 
 int main()
 {
-	VideoMode vm(1920, 1080);
-	RenderWindow window(vm, "Space Battle", Style::Default);
-
 	// The game will always be in one of four states
 	enum class State { PAUSED, LEVELING_UP, GAME_OVER, PLAYING };
 
@@ -35,6 +32,14 @@ int main()
 	// The boundaries of the arena
 	IntRect arena;
 
+	//Load Background Texture(Testing)
+	Texture textureBackground;
+	textureBackground.loadFromFile("graphics/Space Background.png");
+
+	Sprite spriteBackground;
+	spriteBackground.setTexture(textureBackground);
+	spriteBackground.setPosition(0, 0);
+
 	/*------------------------------------------------*/
 	/*                 MAIN GAME LOOP                 */
 	/*------------------------------------------------*/
@@ -44,6 +49,33 @@ int main()
         /*               Handle User Input                */
         /*------------------------------------------------*/
         Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == Event::KeyPressed)
+			{
+				// Pause a game while playing
+				if (event.key.code == Keyboard::Return &&
+					state == State::PLAYING)
+				{
+					state = State::PAUSED;
+				}
+
+				// Restart while paused
+				else if (event.key.code == Keyboard::Return &&
+					state == State::PAUSED)
+				{
+					state = State::PLAYING;
+					// Reset the clock so there isn't a frame jump
+					clock.restart();
+				}
+			}
+		} // END while event polling
+
+		// Press escape to quit the game
+		if (Keyboard::isKeyPressed(Keyboard::Escape))
+		{
+			window.close();
+		}
 
         /*------------------------------------------------*/
         /*                 Update Objects                 */
@@ -54,6 +86,8 @@ int main()
         /*                     Draw                       */
         /*------------------------------------------------*/
         window.clear();
+
+		window.draw(spriteBackground);
 
         window.display();
     } // END main game loop
