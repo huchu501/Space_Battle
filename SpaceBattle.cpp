@@ -10,8 +10,6 @@ int main() {
     VideoMode vm(1920, 1080);
     RenderWindow window(vm, "Space Battle", Style::Default);
 
-
-
     /*------------------------------------------------*/
     /*                 MAIN GAME LOOP                 */
     /*------------------------------------------------*/
