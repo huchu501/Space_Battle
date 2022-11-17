@@ -1,38 +1,35 @@
+#include <sstream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 using namespace sf;
-int main()
-{
-	// The game will always be in one of four states
-	enum class State {PAUSED, LEVELING_UP,GAME_OVER, PLAYING};
 
-	// Start with the GAME_OVER state
-	State state = State::GAME_OVER;
+int main() {
 
-	// Get the screen resolution and create an SFML window
-	Vector2f resolution; 
-	resolution.x = VideoMode::getDesktopMode().width;
-	resolution.y = VideoMode::getDesktopMode().height;
+    VideoMode vm(1920, 1080);
+    RenderWindow window(vm, "Space Battle", Style::Default);
 
-	RenderWindow window(VideoMode(resolution.x, resolution.y),"Space Battle", Style::Fullscreen);
+    /*------------------------------------------------*/
+    /*                 MAIN GAME LOOP                 */
+    /*------------------------------------------------*/
+    while (window.isOpen())
+    {
 
-	// Create a an SFML View for the main action
-	View mainView(sf::FloatRect(0, 0,resolution.x, resolution.y));
+        /*------------------------------------------------*/
+        /*               Handle User Input                */
+        /*------------------------------------------------*/
+        Event event;
 
-	// Here is our clock for timing everything
-	Clock clock;
+        /*------------------------------------------------*/
+        /*                 Update Objects                 */
+        /*------------------------------------------------*/
 
-	// How long has the PLAYING state been active
-	Time gameTimeTotal;
+        /*------------------------------------------------*/
+        /*                     Draw                       */
+        /*------------------------------------------------*/
+        window.clear();
 
-	// The boundaries of the arena
-	IntRect arena;
-
-	// The main game loop
-	while (window.isOpen())
-	{
-
-	}
-
-
-	return 0;
+        window.display();
+    } // END main game loop
 }
