@@ -8,7 +8,6 @@ using namespace sf;
 int main()
 {
 	VideoMode vm(1920, 1080);
-	RenderWindow window(vm, "Space Battle", Style::Default);
 
 	// The game will always be in one of four states
 	enum class State { PAUSED, LEVELING_UP, GAME_OVER, PLAYING };
@@ -35,6 +34,14 @@ int main()
 	// The boundaries of the arena
 	IntRect arena;
 
+	//Load Background Texture(Testing)
+	Texture textureBackground;
+	textureBackground.loadFromFile("graphics/Space Background.png");
+
+	Sprite spriteBackground;
+	spriteBackground.setTexture(textureBackground);
+	spriteBackground.setPosition(0, 0);
+
 	/*------------------------------------------------*/
 	/*                 MAIN GAME LOOP                 */
 	/*------------------------------------------------*/
@@ -54,7 +61,7 @@ int main()
         /*                     Draw                       */
         /*------------------------------------------------*/
         window.clear();
-
+		window.draw(spriteBackground);
         window.display();
     } // END main game loop
 }
