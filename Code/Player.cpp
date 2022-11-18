@@ -15,17 +15,17 @@ Player::Player()
 	m_Sprite.setOrigin(25, 25);
 }
 
-void Player::spawn(IntRect arena, Vector2f resolution, int tileSize)
+void Player::spawn(IntRect space, Vector2f resolution, int tileSize)
 {
 	// Place the player in the middle of the arena
-	m_Position.x = arena.width / 2;
-	m_Position.y = arena.height / 2;
+	m_Position.x = space.width / 2;
+	m_Position.y = space.height / 2;
 
 	// Copy the details of the arena to the player's m_Arena
-	m_Arena.left = arena.left;
-	m_Arena.width = arena.width;
-	m_Arena.top = arena.top;
-	m_Arena.height = arena.height;
+	m_Arena.left = space.left;
+	m_Arena.width = space.width;
+	m_Arena.top = space.top;
+	m_Arena.height = space.height;
 
 	// Remember how big the tiles are in this arena
 	m_TileSize = tileSize;
@@ -63,11 +63,6 @@ FloatRect Player::getPosition()
 Vector2f Player::getCenter()
 {
 	return m_Position;
-}
-
-float Player::getRotation()
-{
-	return m_Sprite.getRotation();
 }
 
 Sprite Player::getSprite()
@@ -120,7 +115,7 @@ void Player::stopDown()
 	m_DownPressed = false;
 }
 
-void Player::update(float elapsedTime, Vector2i mousePosition)
+void Player::update(float elapsedTime)
 {
 
 	if (m_UpPressed)
@@ -166,13 +161,6 @@ void Player::update(float elapsedTime, Vector2i mousePosition)
 	{
 		m_Position.y = m_Arena.top + m_TileSize;
 	}
-
-	// Calculate the angle the player is facing
-	float angle = (atan2(mousePosition.y - m_Resolution.y / 2,
-		mousePosition.x - m_Resolution.x / 2)
-		* 180) / 3.141;
-
-	m_Sprite.setRotation(angle);
 }
 
 void Player::upgradeSpeed()

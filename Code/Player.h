@@ -51,7 +51,7 @@ public:
 
 	Player();
 
-	void spawn(IntRect arena, Vector2f resolution, int tileSize);
+	void spawn(IntRect space, Vector2f resolution, int tileSize);
 
 	// Handle the player getting hit by a zombie
 	bool hit(Time timeHit);
@@ -64,9 +64,6 @@ public:
 
 	// Where is the center of the player
 	Vector2f getCenter();
-
-	// Which angle is the player facing
-	float getRotation();
 
 	// Send a copy of the sprite to main
 	Sprite getSprite();
@@ -93,7 +90,7 @@ public:
 	void stopDown();
 
 	// We will call this function once every frame
-	void update(float elapsedTime, Vector2i mousePosition);
+	void update(float elapsedTime);
 
 	// Give player a speed boost
 	void upgradeSpeed();
