@@ -9,6 +9,8 @@ using namespace sf;
 
 int main()
 {
+
+	//Testing push
 	// The game will always be in one of four states
 	enum class State { PAUSED, UPGRADE, GAME_OVER, PLAYING };
 
