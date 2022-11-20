@@ -1,80 +1,58 @@
-#include "spaceBattle.h"
-int createBackground(VertexArray& rVA, IntRect arena)
+#include "CreateBackground.h"
+
+CreateBackground::CreateBackground()
 {
-	// Anything we do to rVA we are really doing
-	// to background (in the main function)
+	textureBackground.loadFromFile("graphics/SpaceBackground.png");
+	background.setTexture(textureBackground);
+	background.setColor(Color::Transparent);
+	t = 255;
+	r = 255;
+	g = 255;
+	b = 255;
+	i = 0;
+	setRGB = 1;
+}
 
-	// How big is each tile/texture
-	const int TILE_SIZE = 50;
-	const int TILE_TYPES = 4;   //changed to 1 for 1 background
-	const int VERTS_IN_QUAD = 4;
-	int worldWidth = arena.width / TILE_SIZE;
-	int worldHeight = arena.height / TILE_SIZE;
-	// What type of primitive are we using?
-	rVA.setPrimitiveType(Quads);
-	// Set the size of the vertex array
-	rVA.resize(worldWidth * worldHeight * VERTS_IN_QUAD);
-	// Start at the beginning of the vertex array
-	int currentVertex = 0;
-	for (int w = 0; w < worldWidth; w++)
+Sprite CreateBackground::getBackground(Clock imgClock)
+{
+	updateImgTime = imgClock.getElapsedTime();
+	if (updateImgTime.asMilliseconds() >= i)
 	{
-		for (int h = 0; h < worldHeight; h++)
+		if (t >= 245)
+			toggleT = true;
+		if (t <= 25)
 		{
-			// Position each vertex in the current quad
-			rVA[currentVertex + 0].position =
-				Vector2f(w * TILE_SIZE, h * TILE_SIZE);
-
-			rVA[currentVertex + 1].position =
-				Vector2f((w * TILE_SIZE) + TILE_SIZE, h * TILE_SIZE);
-
-			rVA[currentVertex + 2].position =
-				Vector2f((w * TILE_SIZE) + TILE_SIZE, (h * TILE_SIZE)
-					+ TILE_SIZE);
-			rVA[currentVertex + 3].position =
-				Vector2f((w * TILE_SIZE), (h * TILE_SIZE)
-					+ TILE_SIZE);
-
-			// Define the position in the Texture for current quad
-			// Either grass, stone, bush or wall
-			if (h == 0 || h == worldHeight - 1 ||
-				w == 0 || w == worldWidth - 1)
+			toggleT = false;
+			if (setRGB == 0)
 			{
-				// Use the wall texture
-				rVA[currentVertex + 0].texCoords =
-					Vector2f(0, 0 + TILE_TYPES * TILE_SIZE);
-
-				rVA[currentVertex + 1].texCoords =
-					Vector2f(TILE_SIZE, 0 +
-						TILE_TYPES * TILE_SIZE);
-
-				rVA[currentVertex + 2].texCoords =
-					Vector2f(TILE_SIZE, TILE_SIZE +
-						TILE_TYPES * TILE_SIZE);
-
-				rVA[currentVertex + 3].texCoords =
-					Vector2f(0, TILE_SIZE +
-						TILE_TYPES * TILE_SIZE);
+				r = 255;
+				g = 255;
+				b = 255;
+				setRGB = 1;
 			}
-			else
+			else if (setRGB == 1)
 			{
-				// Use a random floor texture
-				srand((int)time(0) + h * w - h);
-				int mOrG = (rand() % TILE_TYPES);
-				int verticalOffset = mOrG * TILE_SIZE;
-				rVA[currentVertex + 0].texCoords =
-					Vector2f(0, 0 + verticalOffset);
-				rVA[currentVertex + 1].texCoords =
-					Vector2f(TILE_SIZE, 0 + verticalOffset);
-
-				rVA[currentVertex + 2].texCoords =
-					Vector2f(TILE_SIZE, TILE_SIZE + verticalOffset);
-
-				rVA[currentVertex + 3].texCoords =
-					Vector2f(0, TILE_SIZE + verticalOffset);
+				r = 0;
+				g = 255;
+				b = 255;
+				setRGB = 2;
 			}
-			// Position ready for the next four vertices
-			currentVertex = currentVertex + VERTS_IN_QUAD;
+			else if (setRGB == 2)
+			{
+				r = 150;
+				g = 0;
+				b = 255;
+				setRGB = 0;
+			}
 		}
+
+		if (toggleT)
+			t -= 5;
+		else
+			t += 5;
+
+		i += 100;
 	}
-	return TILE_SIZE;
+	background.setColor(Color(r, g, b, t));
+	return background;
 }

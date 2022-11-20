@@ -4,7 +4,7 @@
 #include <SFML/Audio.hpp>
 #include "Player.h"
 #include "spaceBattle.h"
-
+#include "CreateBackground.h"
 using namespace sf;
 
 int main()
@@ -25,10 +25,10 @@ int main()
 	RenderWindow window(VideoMode(resolution.x, resolution.y), "Space Battle", Style::Fullscreen);
 
 	// Create a an SFML View for the main action
-	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
+	View mainView(sf::FloatRect(0, 0, VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height));
 
 	// Here is our clock for timing everything
-	Clock clock;
+	Clock clock, bgClock;
 
 	// How long has the PLAYING state been active
 	Time gameTimeTotal;
@@ -39,11 +39,8 @@ int main()
 
 	// The boundaries of the space
 	IntRect space;
-
-	//Load Background Texture(Testing)
-	VertexArray background;
-	Texture textureBackground;
-	textureBackground.loadFromFile("graphics/Space Background.png");
+	//Create Background
+	CreateBackground background;
 
 	/*------------------------------------------------*/
 	/*                 MAIN GAME LOOP                 */
@@ -162,16 +159,19 @@ int main()
 			if (state == State::PLAYING)
 			{
 				// background
-				space.height = 1000;
-				space.width = 1000;
+				space.height = 1080;  //Changed from 1000
+				space.width = 1920;   //Changed from 1000
 				space.left = 0;
 				space.top = 0;
-				int tileSize = createBackground(background, space);
+				//int tileSize = createBackground(background, space); //SET TO 50 AND REMOVE THE CREATEBACKGROUND.CPP, CREATE NEW ALGORITHM FOR CHANGING IMAGE
+				int tileSize = 50;
+
+
+
 
 				// spawn the player at bottom middle
 				player1.spawn(space, resolution, tileSize);
 				player2.spawn(space, resolution, tileSize);
-
 				// reset the clock 
 				clock.restart();
 			}
@@ -200,7 +200,8 @@ int main()
 			Vector2f playerPosition(player1.getCenter());
 
 			// set the center to the center of the background
-			mainView.setCenter(player1.getCenter());
+			//REMOVE THIS TO KEEP BACKGROUND CENTERED(NO BLACK BARS)************
+			//mainView.setCenter(player1.getCenter());
 		}
 
 
@@ -216,8 +217,7 @@ int main()
 			window.setView(mainView);
 
 			// draw the background
-			window.draw(background, &textureBackground);
-
+			window.draw(background.getBackground(bgClock));
 			// draw the player
 			window.draw(player1.getSprite());
 			window.draw(player2.getSprite());
