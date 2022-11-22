@@ -161,6 +161,7 @@ void Player::update(float elapsedTime)
 	{
 		m_Position.y = m_Arena.top + m_TileSize;
 	}
+	
 }
 
 void Player::upgradeSpeed()
