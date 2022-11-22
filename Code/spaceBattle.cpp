@@ -57,13 +57,13 @@ int main()
 			if (event.type == Event::KeyPressed)
 			{
 				// Pause a game while playing
-				if (event.key.code == Keyboard::Enter && state == State::PLAYING)
+				if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PLAYING)
 				{
 					state = State::PAUSED;
 				}
 
 				// Restart while paused
-				else if (event.key.code == Keyboard::Enter && state == State::PAUSED)
+				else if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PAUSED)
 				{
 					state = State::PLAYING;
 					// Reset the clock so there isn't a frame jump
@@ -152,7 +152,7 @@ int main()
 		if (state == State::UPGRADE)
 		{
 			// handle player upgrading
-			if (event.key.code == Keyboard::Num1)
+			if (Keyboard::isKeyPressed(Keyboard::Num1))
 			{
 				state = State::PLAYING;
 			}
