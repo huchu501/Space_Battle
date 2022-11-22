@@ -53,6 +53,7 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 
 		i += 100;
 	}
+
 	background.setColor(Color(r, g, b, t));
 	return background;
 }
