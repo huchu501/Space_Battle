@@ -34,8 +34,8 @@ int main()
 	Time gameTimeTotal;
 
 	// Create player1 and player2 objects 
-	Player player1;
-	Player player2;
+	Player player1(1);
+	Player player2(2);
 
 	// The boundaries of the space
 	IntRect space;
@@ -166,10 +166,7 @@ int main()
 				//int tileSize = createBackground(background, space); //SET TO 50 AND REMOVE THE CREATEBACKGROUND.CPP, CREATE NEW ALGORITHM FOR CHANGING IMAGE
 				int tileSize = 50;
 
-
-
-
-				// spawn the player at bottom middle
+				// spawn the player at bottom
 				player1.spawn(space, resolution, tileSize);
 				player2.spawn(space, resolution, tileSize);
 				// reset the clock 
@@ -192,12 +189,17 @@ int main()
 			// make a decimal fraction of 1 from the delta time
 			float drAsSeconds = dt.asSeconds();
 
-			// update the player
+			// update player1
 			player1.update(drAsSeconds);
 			player1.update(drAsSeconds);
 
+			// update player2
+			player2.update(drAsSeconds);
+			player2.update(drAsSeconds);
+
 			// make a note of the players new position
-			Vector2f playerPosition(player1.getCenter());
+			Vector2f player1Position(player1.getCenter());
+			Vector2f player2Position(player2.getCenter());
 
 			// set the center to the center of the background
 			//REMOVE THIS TO KEEP BACKGROUND CENTERED(NO BLACK BARS)************
