@@ -2,8 +2,9 @@
 
 CreateBackground::CreateBackground()
 {
-	textureBackground.loadFromFile("graphics/SpaceBackground.png");
-	background.setTexture(textureBackground);
+	//textureBackground.loadFromFile("graphics/SpaceBackground.png");
+	background = Sprite(TextureHolder::GetTexture("graphics/SpaceBackground.png"));
+	//background.setTexture(textureBackground);
 	background.setColor(Color::Transparent);
 	t = 255;
 	r = 255;
@@ -45,13 +46,13 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 				setRGB = 0;
 			}
 		}
-
+		
 		if (toggleT)
 			t -= 5;
 		else
 			t += 5;
 
-		i += 100;
+		i += 25;
 	}
 
 	background.setColor(Color(r, g, b, t));
