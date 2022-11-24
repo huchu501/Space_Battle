@@ -48,11 +48,11 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 		}
 		
 		if (toggleT)
-			t -= 5;
+			t -= 5; //default was 5
 		else
 			t += 5;
 
-		i += 25;
+		i += 50;
 	}
 
 	background.setColor(Color(r, g, b, t));

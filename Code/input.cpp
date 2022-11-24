@@ -26,6 +26,17 @@ void Engine::input()
 				// Reset the clock so there isn't a frame jump
 				clock.restart();
 			}
+
+			//Start the game with num1
+			if (Keyboard::isKeyPressed(Keyboard::Num1) && state == State::UPGRADE)
+			{
+				state = State::PLAYING;
+			}
+
+
 		}
+
+		player1.handleInput();
+		player2.handleInput();
 	} // END while event polling
 }

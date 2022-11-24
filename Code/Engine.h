@@ -10,7 +10,7 @@ class Engine
 {
 private:
 	enum class State { PAUSED, UPGRADE, GAME_OVER, PLAYING };
-	State state = State::PLAYING;
+	State state;
 	Vector2f resolution;
 	RenderWindow window;
 

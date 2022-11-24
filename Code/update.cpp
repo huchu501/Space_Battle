@@ -10,12 +10,14 @@ void Engine::update(float dtAsSeconds)
 	space.left = 0;
 	space.top = 0;
 
-	if (state == State::PLAYING)
+	if (state == State::UPGRADE)
 	{
 		// spawn the two players at its spawn location
 		player1.spawn(space, resolution);
 		player2.spawn(space, resolution);
-
+	}
+	if(state == State::PLAYING)
+	{
 		// update the two players
 		player1.update(dtAsSeconds);
 		player2.update(dtAsSeconds);
