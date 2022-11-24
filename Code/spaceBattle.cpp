@@ -3,14 +3,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
-#include "spaceBattle.h"
 #include "CreateBackground.h"
 using namespace sf;
 
 int main()
 {
-
-	//Testing push
+	//ALL OF THIS HAS BEEN IMPLEMENTED IN ENGINE CONSTRUCTOR, NEED TO TRANSFER THE MAIN GAME LOOP NOW
+	/*
 	// The game will always be in one of four states
 	enum class State { PAUSED, UPGRADE, GAME_OVER, PLAYING };
 
@@ -41,7 +40,7 @@ int main()
 	IntRect space;
 	//Create Background
 	CreateBackground background;
-
+	*/
 	/*------------------------------------------------*/
 	/*                 MAIN GAME LOOP                 */
 	/*------------------------------------------------*/

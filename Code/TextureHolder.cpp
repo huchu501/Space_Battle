@@ -22,6 +22,7 @@ Texture& TextureHolder::GetTexture(string const& filename)
 
 	// an iterator to hold a key-value pair and search for it with the filename passed
 	auto keyValuePair = m.find(filename);
+	// auto is equivalent of map<string, Texture>::iterator
 
 	if (keyValuePair != m.end())
 	{
@@ -39,4 +40,5 @@ Texture& TextureHolder::GetTexture(string const& filename)
 		// return the texture
 		return texture;
 	}
+
 }
