@@ -167,8 +167,8 @@ int main()
 				int tileSize = 50;
 
 				// spawn the player at bottom
-				player1.spawn(space, resolution, tileSize);
-				player2.spawn(space, resolution, tileSize);
+				player1.spawn(space, resolution);
+				player2.spawn(space, resolution);
 				// reset the clock 
 				clock.restart();
 			}

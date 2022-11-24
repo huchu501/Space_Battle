@@ -5,7 +5,8 @@ using namespace sf;
 
 class Player
 {
-private:
+// protected, so that the subclasses can use all these variables
+protected:
 	const float START_SPEED = 200;
 	const float START_HEALTH = 100;
 
@@ -27,9 +28,6 @@ private:
 	// What size is the space
 	IntRect m_Space;
 
-	// How big is each tile of the space
-	int m_TileSize;
-
 	// Which directions is the player currently moving in
 	bool m_UpPressed;
 	bool m_DownPressed;
@@ -47,20 +45,19 @@ private:
 	// Speed in pixels per second
 	float m_Speed;
 
-	// player number 1 or 2
-	int m_Player;
+	// we don't need this since our background isn't made up of small tiles
+	// How big is each tile of the space
+	// int m_TileSize;
 
-
-	// All our public functions will come next
 public:
-	// default constructor
-	Player();
+	// this is the abstract base class, so it won't have a contructor.
 
-	// parameterized constructor: sets the player1 or 2 sprite texture
-	Player(int player);
+	// pure virtual functions, now this class cannot be instantiated
+	// spawns the player1 on the bottom left or right of the screen
+	virtual void spawn(IntRect space, Vector2f resolution) = 0;
 
-	// spawn the player1 on the left bottom of the screen
-	void spawn(IntRect space, Vector2f resolution, int tileSize);
+	// input function
+	virtual bool handleInput() = 0;
 
 	// Handle the player getting hit by a zombie
 	bool hit(Time timeHit);
