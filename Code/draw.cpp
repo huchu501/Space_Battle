@@ -8,9 +8,10 @@ void Engine::draw()
 		window.setView(mainView);
 		window.draw(background.getBackground(bgClock));
 
-		//draw players here
+		// draw 2 players on background
+		window.draw(player1.getSprite());
+		window.draw(player2.getSprite());
 
 		window.display();
-
 	}
 }

@@ -57,7 +57,7 @@ public:
 	virtual void spawn(IntRect space, Vector2f resolution) = 0;
 
 	// input function
-	virtual bool handleInput() = 0;
+	virtual void handleInput() = 0;
 
 	// Handle the player getting hit by a zombie
 	bool hit(Time timeHit);

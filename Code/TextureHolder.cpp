@@ -9,7 +9,7 @@ TextureHolder* TextureHolder::m_s_Instance = nullptr;
 
 TextureHolder::TextureHolder()
 {
-	// assert ??
+	// assert 
 	assert(m_s_Instance == nullptr);
 	m_s_Instance = this;
 }

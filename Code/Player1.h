@@ -11,5 +11,5 @@ public:
 	virtual void spawn(IntRect space, Vector2f resolution) override;
 
 	// override input function for player1
-	virtual bool handleInput();
+	virtual void handleInput();
 };

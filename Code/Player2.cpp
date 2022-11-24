@@ -30,7 +30,7 @@ void Player2::spawn(IntRect space, Vector2f resolution)
 }
 
 // Virtual function overriding Player.h pure virtual function handleInput()
-bool Player2::handleInput()
+void Player2::handleInput()
 {
 	if (Keyboard::isKeyPressed(Keyboard::Up))
 	{
