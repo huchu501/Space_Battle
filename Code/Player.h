@@ -28,6 +28,9 @@ protected:
 	// What size is the space
 	IntRect m_Space;
 
+	// How big is each tile of the space
+	int m_TileSize;
+
 	// Which directions is the player currently moving in
 	bool m_UpPressed;
 	bool m_DownPressed;
@@ -45,16 +48,12 @@ protected:
 	// Speed in pixels per second
 	float m_Speed;
 
-	// we don't need this since our background isn't made up of small tiles
-	// How big is each tile of the space
-	// int m_TileSize;
-
 public:
 	// this is the abstract base class, so it won't have a contructor.
 
 	// pure virtual functions, now this class cannot be instantiated
 	// spawns the player1 on the bottom left or right of the screen
-	virtual void spawn(IntRect space, Vector2f resolution) = 0;
+	virtual void spawn(IntRect space, Vector2f resolution, int tileSize) = 0;
 
 	// input function
 	virtual void handleInput() = 0;

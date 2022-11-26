@@ -13,7 +13,7 @@ Player1::Player1()
 }
 
 // Virtual function overriding Player.h pure virtual function spawn()
-void Player1::spawn(IntRect space, Vector2f resolution)
+void Player1::spawn(IntRect space, Vector2f resolution, int tileSize)
 {
 	m_Position.x = space.width / 4;
 	m_Position.y = 1000;
@@ -23,6 +23,9 @@ void Player1::spawn(IntRect space, Vector2f resolution)
 	m_Space.width = space.width;
 	m_Space.top = space.top;
 	m_Space.height = space.height;
+
+	// Remember how big the tiles are in this space
+	m_TileSize = tileSize;
 
 	// Store the resolution for future use
 	m_Resolution.x = resolution.x;
