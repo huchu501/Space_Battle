@@ -12,8 +12,6 @@ Engine::Engine()
 	mainView.setSize(resolution);
 	mainView.reset(sf::FloatRect(0, 0, VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height));
 }
-
-
 /*------------------------------------------------*/
 /*                 MAIN GAME LOOP                 */
 /*------------------------------------------------*/
@@ -35,7 +33,5 @@ void Engine::run()
 		update(dtAsSeconds);
 		draw();
 	}
-
-
 }
 

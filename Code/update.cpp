@@ -12,7 +12,6 @@ void Engine::update(float dtAsSeconds)
 
 	// set to 50 to create new algorithm for color changing imgae
 	int tileSize = 50;
-
 	if (state == State::UPGRADE)
 	{
 		// spawn the two players at its spawn location
@@ -24,5 +23,20 @@ void Engine::update(float dtAsSeconds)
 		// update the two players
 		player1.update(dtAsSeconds);
 		player2.update(dtAsSeconds);
+
+		//Spawns in an enemy based on spawnTime(seconds);
+		if (gameTimeTotal.asSeconds() > spawnTime)
+		{
+			enemySpawnPoint = rand() % 1891;
+			enemy1.push_back(new Enemy1);  //need to randomize this for different enemies
+			enemy1.back()->spawn(enemySpawnPoint, -10);
+			spawnTime += 5;  //controlls when next enemy will begin moving(seconds)
+			numOfEnemy += 1;
+		}
+		for (int i = 0; i < numOfEnemy; i++)
+		{
+			enemy1[i]->update(dtAsSeconds, player1.getCenter());  //updates each enemy
+		}
+		
 	}
 }

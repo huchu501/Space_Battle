@@ -58,7 +58,7 @@ public:
 	// input function
 	virtual void handleInput() = 0;
 
-	// Handle the player getting hit by a zombie
+	// Handle the player getting hit by a Enemy
 	bool hit(Time timeHit);
 
 	// How long ago was the player last hit
