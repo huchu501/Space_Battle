@@ -7,7 +7,7 @@ void Engine::draw()
 		window.clear();
 		window.setView(mainView);
 		window.draw(background.getBackground(bgClock));
-
+		window.draw(hud.getScoreText());
 		// draw 2 players on background
 		window.draw(player1.getSprite());
 		window.draw(player2.getSprite());

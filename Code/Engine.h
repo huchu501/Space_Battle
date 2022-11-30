@@ -5,12 +5,13 @@
 #include "Player2.h"
 #include "TextureHolder.h"
 #include "Enemy1.h"
+#include "Hud.h"
 using namespace sf;
 
 class Engine
 {
 private:
-	enum class State { PAUSED, UPGRADE, GAME_OVER, PLAYING };
+	enum class State { PAUSED, UPGRADE, GAME_OVER, PLAYING, MENU };
 	State state;
 	Vector2f resolution;
 	RenderWindow window;
@@ -36,6 +37,7 @@ private:
 	//Create Background
 	CreateBackground background;
 
+	Hud hud;
 	vector<Enemy*> enemy1;   //remember to delete the pointers
 	int spawnTime = 0;
 	int enemySpawnPoint = 0;
