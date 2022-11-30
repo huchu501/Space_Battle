@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "Projectile.h"
 using namespace sf;
 
 class Player
@@ -36,17 +36,21 @@ protected:
 	bool m_DownPressed;
 	bool m_LeftPressed;
 	bool m_RightPressed;
-
+	bool m_SpacePressed;
 	// How much health has the player got?
 	int m_Health;
 	// What is the maximum health the player can have
 	int m_MaxHealth;
 
 	// When was the player last hit
-	Time m_LastHit;
+	Time m_LastHit, updateProjTime;
 
 	// Speed in pixels per second
 	float m_Speed;
+
+	vector<Projectile*> p1;
+
+	float timeToShoot = 0;
 
 public:
 	// this is the abstract base class, so it won't have a contructor.
@@ -94,8 +98,13 @@ public:
 
 	void stopDown();
 
+	//Get player to shoot projectile
+	void shootPressed();
+
+	void stopShoot();
+
 	// We will call this function once every frame
-	void update(float elapsedTime);
+	void update(float elapsedTime, Clock imgClock);
 
 	// Give player a speed boost
 	void upgradeSpeed();
@@ -107,6 +116,14 @@ public:
 	void increaseHealthLevel(int amount);
 
 	void resetPlayerStats();
+
+	//Returns number of projectiles
+	int getProjectileSize();
+
+	Vector2f getVector2f(int i);
+
+	Sprite getProjectileSprite(int i);
+
 };
 
 

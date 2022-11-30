@@ -21,9 +21,10 @@ void Engine::update(float dtAsSeconds)
 	if(state == State::PLAYING)
 	{
 		// update the two players
-		player1.update(dtAsSeconds);
-		player2.update(dtAsSeconds);
+		player1.update(dtAsSeconds, bgClock);
+		player2.update(dtAsSeconds, bgClock);
 
+		//change spawn to be a for loop of 100 
 		//Spawns in an enemy based on spawnTime(seconds);
 		if (gameTimeTotal.asSeconds() > spawnTime)
 		{
@@ -33,10 +34,23 @@ void Engine::update(float dtAsSeconds)
 			spawnTime += 5;  //controlls when next enemy will begin moving(seconds)
 			numOfEnemy += 1;
 		}
-		for (int i = 0; i < numOfEnemy; i++)
+		//CHANGE UPDATE TO BE BASED ON GAMETIMETOTAL.ASSECONDS()
+		for (int i = 0; i < enemy1.size(); i++)
 		{
 			enemy1[i]->update(dtAsSeconds, player1.getCenter());  //updates each enemy
+
 		}
+		//Checks collision of friendly projectile and enemy ship
+		for (int i = 0; i < player1.getProjectileSize(); i++)
+		{
+			for (int j = 0; j < enemy1.size(); j++)
+			{
+				checkCol = col.checkCollision(player1.getVector2f(i), enemy1[j]->getVector2f());
+				if (checkCol)
+					enemy1[j]->setSprite();
+			}
+		}
+
 		
 	}
 }

@@ -2,5 +2,82 @@
 
 Projectile::Projectile()
 {
+	m_Sprite = Sprite(TextureHolder::GetTexture("Graphics/projectile1.png"));
+	m_Sprite.setOrigin(25, 25);
 	m_Speed = START_SPEED;
+}
+void Projectile::stop()
+{
+	m_InFlight = false;
+}
+
+bool Projectile::isInFlight()
+{
+	return m_InFlight;
+}
+
+FloatRect Projectile::getPosition()
+{
+	return m_Sprite.getGlobalBounds();
+}
+
+Sprite Projectile::getSprite()
+{
+	return m_Sprite;
+}
+
+void Projectile::shoot(float startX, float startY, float xTarget, float yTarget)
+{
+	m_InFlight = true;
+	m_Position.x = startX;
+	m_Position.y = startY;
+
+	float gradient = (startX - xTarget) / (startY - yTarget);
+
+	if (gradient < 0)
+	{
+		gradient *= -1;
+	}
+
+	float ratioXY = m_Speed / (1 + gradient);
+
+	m_ProjectileDistanceY = ratioXY;
+	m_ProjectileDistanceX = ratioXY * gradient;
+
+	if (xTarget < startX)
+	{
+		m_ProjectileDistanceX *= -1;
+	}
+
+	if (yTarget < startY)
+	{
+		m_ProjectileDistanceY *= -1;
+	}
+
+	float range = 1000;
+
+	m_MinX = startX - range;
+	m_MaxX = startX + range;
+	m_MinY = startY - range;
+	m_MaxY = startY + range;
+	m_Sprite.setPosition(m_Position);
+}
+
+void Projectile::update(float elapsedTime)
+{
+	// Update the bullet position variables
+	m_Position.x += m_ProjectileDistanceX * elapsedTime;
+	m_Position.y += m_ProjectileDistanceY * elapsedTime;
+	// Move the bullet
+	m_Sprite.setPosition(m_Position);
+	// Has the bullet gone out of range?
+	if (m_Position.y < -50)
+	{
+		m_InFlight = false;
+	}
+}
+
+Vector2f Projectile::getVector2f()
+{
+	return m_Position;
 }

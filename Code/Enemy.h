@@ -44,4 +44,8 @@ public:
     Sprite getSprite();
     // Update the Enemy each frame
     virtual void update(float elapsedTime, Vector2f playerLocation) = 0;
+
+    Vector2f getVector2f();
+
+    void setSprite();
 };

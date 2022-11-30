@@ -67,4 +67,12 @@ void Player2::handleInput()
 	{
 		stopRight();
 	}
+	if (Keyboard::isKeyPressed(Keyboard::Numpad0))
+	{
+		shootPressed();
+	}
+	else
+	{
+		stopShoot();
+	}
 }

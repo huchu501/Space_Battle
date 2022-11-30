@@ -1,5 +1,6 @@
 #include "Player1.h"
 #include "TextureHolder.h"
+#include "Projectile.h"
 
 Player1::Player1()
 {
@@ -10,6 +11,8 @@ Player1::Player1()
 	m_Speed = START_SPEED;
 	m_Health = START_HEALTH;
 	m_MaxHealth = START_HEALTH;
+
+
 }
 
 // Virtual function overriding Player.h pure virtual function spawn()
@@ -67,4 +70,13 @@ void Player1::handleInput()
 	{
 		stopRight();
 	}
+	if (Keyboard::isKeyPressed(Keyboard::Space))
+	{
+		shootPressed();
+	}
+	else
+	{
+		stopShoot();
+	}
 }
+

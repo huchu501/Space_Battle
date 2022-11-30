@@ -1,12 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "TextureHolder.h"
 using namespace sf;
 
 class Projectile
 {
 protected:
-	const float START_SPEED = 200;
+	const float START_SPEED = 400;
+
+	//RectangleShape m_ProjectileShape;
 
 	// position of the projectile on screen
 	Vector2f m_Position;
@@ -41,6 +43,7 @@ protected:
 	float m_MaxY;
 	float m_MinY;
 
+
 public:
 	// default constructor
 	Projectile();
@@ -55,11 +58,13 @@ public:
 	void shoot(float startX, float startY, float xTarget, float yTarget);
 
 	// tell the calling code where the position of projectile is at
-	FloatRect getPosition();
+	FloatRect getPosition();  //floatrect
 
 	// return the copy of the sprite
 	Sprite getSprite();
 
 	// update the projectiles each frame
 	void update(float elapsedTime);
+
+	Vector2f getVector2f();
 };

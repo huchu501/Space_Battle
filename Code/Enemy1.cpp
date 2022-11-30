@@ -76,3 +76,4 @@ void Enemy1::update(float elapsedTime, Vector2f playerLocation)
         * 180) / 3.141;
     m_Sprite.setRotation(angle);
 }
+

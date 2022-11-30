@@ -1,6 +1,5 @@
 #include "Player.h"
 #include <cmath>
-
 bool Player::hit(Time timeHit)
 {
 	if (timeHit.asMilliseconds() - m_LastHit.asMilliseconds() > 200)// 2 tenths of second
@@ -34,6 +33,10 @@ Vector2f Player::getCenter()
 Sprite Player::getSprite()
 {
 	return m_Sprite;
+}
+Sprite Player::getProjectileSprite(int i)
+{
+	return p1[i]->getSprite();
 }
 
 int Player::getHealth()
@@ -81,8 +84,19 @@ void Player::stopDown()
 	m_DownPressed = false;
 }
 
-void Player::update(float elapsedTime)
+void Player::shootPressed()
 {
+	m_SpacePressed = true;
+}
+
+void Player::stopShoot()
+{
+	m_SpacePressed = false;
+}
+
+void Player::update(float elapsedTime, Clock imgclock)
+{
+	updateProjTime = imgclock.getElapsedTime();
 
 	if (m_UpPressed)
 	{
@@ -128,6 +142,23 @@ void Player::update(float elapsedTime)
 		m_Position.y = m_Space.top;
 	}
 	
+	
+	
+	if (m_SpacePressed && updateProjTime.asMilliseconds() > timeToShoot)
+	{
+		p1.push_back(new Projectile);
+		p1.back()->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
+		timeToShoot = updateProjTime.asMilliseconds() + 500;//timetoshoot dictates projectile speed
+	}
+
+	for (int i = 0; i < p1.size(); i++)
+	{
+		if (p1[i]->isInFlight())
+		{
+			p1[i]->update(elapsedTime);
+		}
+	}
+		
 }
 
 void Player::upgradeSpeed()
@@ -159,4 +190,14 @@ void Player::resetPlayerStats()
 	m_Speed = START_SPEED;
 	m_Health = START_HEALTH;
 	m_MaxHealth = START_HEALTH;
+}
+
+int Player::getProjectileSize()
+{
+	return p1.size();
+}
+
+Vector2f Player::getVector2f(int i)
+{
+	return p1[i]->getVector2f();;
 }

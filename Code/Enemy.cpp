@@ -40,7 +40,7 @@ void Enemy::spawn(float startX, float startY)
     m_Position.x = startX;
     m_Position.y = startY;
     // Set its origin to its center
-    m_Sprite.setOrigin(25, 25);
+    m_Sprite.setOrigin(50, 50);
     // Set its position
     m_Sprite.setPosition(m_Position);
 }
@@ -101,4 +101,14 @@ void Enemy::update(float elapsedTime,
     }
     // Move the sprite
     m_Sprite.setPosition(m_Position);
+}
+
+Vector2f Enemy::getVector2f()
+{
+    return m_Position;
+}
+
+void Enemy::setSprite()
+{
+    m_Sprite = m_Explosion;
 }

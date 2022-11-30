@@ -6,6 +6,8 @@
 #include "TextureHolder.h"
 #include "Enemy1.h"
 #include "Hud.h"
+#include "Projectile.h"
+#include "Collision.h"
 using namespace sf;
 
 class Engine
@@ -38,7 +40,12 @@ private:
 	CreateBackground background;
 
 	Hud hud;
+
+	Collision col;
+
 	vector<Enemy*> enemy1;   //remember to delete the pointers
+	bool checkCol;
+
 	int spawnTime = 0;
 	int enemySpawnPoint = 0;
 	int numOfEnemy = 0;
