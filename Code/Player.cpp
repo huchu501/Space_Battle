@@ -149,7 +149,7 @@ void Player::update(float elapsedTime, Clock imgclock)
 		{
 			p1.push_back(new Projectile);
 			p1.back()->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
-			timeToShoot = updateProjTime.asMilliseconds() + 10;//timetoshoot dictates projectile speed
+			timeToShoot = updateProjTime.asMilliseconds() + 1000;//timetoshoot dictates projectile speed
 			MaxClip++;
 		}
 		else
@@ -168,7 +168,6 @@ void Player::update(float elapsedTime, Clock imgclock)
 			p1[i]->update(elapsedTime);
 		}
 	}
-		
 }
 
 void Player::upgradeSpeed()
@@ -210,4 +209,9 @@ int Player::getProjectileSize()
 Vector2f Player::getVector2f(int i)
 {
 	return p1[i]->getVector2f();
+}
+
+void Player::stopProjectile(int i)
+{
+	p1[i]->stop();
 }

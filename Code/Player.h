@@ -125,6 +125,8 @@ public:
 
 	Sprite getProjectileSprite(int i);
 
+	void stopProjectile(int i);
+
 };
 
 

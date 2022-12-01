@@ -47,10 +47,11 @@ void Engine::update(float dtAsSeconds)
 			{
 				checkCol = col.checkCollision(player1.getVector2f(i), enemy1[j]->getVector2f());
 				if (checkCol)
-					enemy1[j]->setSprite();
+				{
+					enemy1[j]->hit();
+				}
 			}
 		}
 
-		
 	}
 }

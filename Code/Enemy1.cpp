@@ -5,7 +5,7 @@ void Enemy1::spawn(float startX, float startY)
     m_Sprite = Sprite(TextureHolder::GetTexture("graphics/enemy-small.png"));
     m_Explosion = Sprite(TextureHolder::GetTexture("graphics/explosion1.png"));
     m_Speed = ENEMY_SPEED;
-    m_Health = ENEMY_HEALTH;
+    m_Health = 10;
 
     float modifier = (rand() % MAX_VARRIANCE) + OFFSET;
     // Express this as a fraction of 1
@@ -17,6 +17,7 @@ void Enemy1::spawn(float startX, float startY)
     m_Position.y = startY;
     // Set its origin to its center
     m_Sprite.setOrigin(14, 14);
+    m_Explosion.setOrigin(14, 14);
     // Set its position
     m_Sprite.setPosition(m_Position);
 }
@@ -27,9 +28,10 @@ bool Enemy1::hit()
     if (m_Health < 0)
     {
         // dead
-        m_Alive = false;
+        m_Sprite = m_Explosion;
+        m_Alive = true;
         //m_Sprite.setTexture(TextureHolder::GetTexture("graphics/blood.png"));
-        return true;
+        return m_Alive;
     }
     // injured but not dead yet
     return false;
@@ -62,12 +64,6 @@ void Enemy1::update(float elapsedTime, Vector2f playerLocation)
             m_Speed * elapsedTime;
     }
 
-    //check if sprite has contacted player
-    if (abs(playerX - m_Position.x) <= 1 && abs(playerY - m_Position.y) <= 1)
-    {
-        m_Sprite = m_Explosion;
-    }
-
     // Move the sprite
     m_Sprite.setPosition(m_Position);
 
@@ -75,5 +71,6 @@ void Enemy1::update(float elapsedTime, Vector2f playerLocation)
         playerX - m_Position.x)
         * 180) / 3.141;
     m_Sprite.setRotation(angle);
+
 }
 

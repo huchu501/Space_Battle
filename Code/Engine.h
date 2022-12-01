@@ -44,7 +44,7 @@ private:
 	Collision col;
 
 	vector<Enemy*> enemy1;   //remember to delete the pointers
-	bool checkCol;
+	bool checkCol, checkCol2;
 
 	int spawnTime = 0;
 	int enemySpawnPoint = 0;

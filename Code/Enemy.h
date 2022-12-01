@@ -12,7 +12,7 @@ protected:
     //const float CRAWLER_SPEED = 20;
 
     // How tough is each Enemy type
-    const float ENEMY_HEALTH = 5;
+    const float ENEMY_HEALTH = 500;
     //const float CHASER_HEALTH = 1;
     //const float CRAWLER_HEALTH = 3;
     // Make each zombie vary its speed slightly
@@ -47,5 +47,4 @@ public:
 
     Vector2f getVector2f();
 
-    void setSprite();
 };
