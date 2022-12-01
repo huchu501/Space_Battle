@@ -49,7 +49,8 @@ protected:
 	float m_Speed;
 
 	vector<Projectile*> p1;
-
+	int MaxClip = 0;
+	int clip = 0;
 	float timeToShoot = 0;
 
 public:

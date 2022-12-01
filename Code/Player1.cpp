@@ -6,7 +6,7 @@ Player1::Player1()
 {
 	// associate texture with sprite
 	m_Sprite = Sprite(TextureHolder::GetTexture("Graphics/ship1.png"));
-
+	m_Sprite.setOrigin(16, 24);
 	// default constructor to reset ship info
 	m_Speed = START_SPEED;
 	m_Health = START_HEALTH;

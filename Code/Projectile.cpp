@@ -3,7 +3,7 @@
 Projectile::Projectile()
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture("Graphics/projectile1.png"));
-	m_Sprite.setOrigin(25, 25);
+	m_Sprite.setOrigin(10, 25);
 	m_Speed = START_SPEED;
 }
 void Projectile::stop()
@@ -71,7 +71,7 @@ void Projectile::update(float elapsedTime)
 	// Move the bullet
 	m_Sprite.setPosition(m_Position);
 	// Has the bullet gone out of range?
-	if (m_Position.y < -50)
+	if (m_Position.y < 20) //-50
 	{
 		m_InFlight = false;
 	}

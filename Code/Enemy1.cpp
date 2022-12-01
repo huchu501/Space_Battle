@@ -16,7 +16,7 @@ void Enemy1::spawn(float startX, float startY)
     m_Position.x = startX;
     m_Position.y = startY;
     // Set its origin to its center
-    m_Sprite.setOrigin(25, 25);
+    m_Sprite.setOrigin(14, 14);
     // Set its position
     m_Sprite.setPosition(m_Position);
 }
