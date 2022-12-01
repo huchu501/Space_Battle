@@ -49,8 +49,11 @@ private:
 	int spawnTime = 0;
 	int enemySpawnPoint = 0;
 	int numOfEnemy = 0;
+	int enemyIterator = 0;
 	void input();
 	void update(float dtAsSeconds);
+	void updateEnemies(float dtAsSeconds);
+	void updateCollisions();
 	void draw();
 
 public:

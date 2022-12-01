@@ -121,11 +121,13 @@ public:
 	//Returns number of projectiles
 	int getProjectileSize();
 
-	Vector2f getVector2f(int i);
+	FloatRect getProjectilePosition(int i);
 
 	Sprite getProjectileSprite(int i);
 
 	void stopProjectile(int i);
+
+	void sendShadowRealm();
 
 };
 

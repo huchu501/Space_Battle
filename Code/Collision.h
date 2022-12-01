@@ -9,6 +9,6 @@ private:
 
 
 public:
-	bool checkCollision(Vector2f projectile, Vector2f enemy);
+	bool checkCollision(FloatRect projectile, FloatRect enemy);
 
 };

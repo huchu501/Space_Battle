@@ -5,7 +5,7 @@ void Enemy1::spawn(float startX, float startY)
     m_Sprite = Sprite(TextureHolder::GetTexture("graphics/enemy-small.png"));
     m_Explosion = Sprite(TextureHolder::GetTexture("graphics/explosion1.png"));
     m_Speed = ENEMY_SPEED;
-    m_Health = 10;
+    m_Health = 5;
 
     float modifier = (rand() % MAX_VARRIANCE) + OFFSET;
     // Express this as a fraction of 1
@@ -20,21 +20,21 @@ void Enemy1::spawn(float startX, float startY)
     m_Explosion.setOrigin(14, 14);
     // Set its position
     m_Sprite.setPosition(m_Position);
+    m_Dead = false;
 }
 
-bool Enemy1::hit()
+void Enemy1::hit()
 {
     m_Health--;
+    m_Sprite.setColor(Color(255,255,255));
     if (m_Health < 0)
     {
         // dead
         m_Sprite = m_Explosion;
-        m_Alive = true;
-        //m_Sprite.setTexture(TextureHolder::GetTexture("graphics/blood.png"));
-        return m_Alive;
+        //m_Alive = true;
+        sendShadowRealm();
     }
     // injured but not dead yet
-    return false;
 }
 
 void Enemy1::update(float elapsedTime, Vector2f playerLocation)

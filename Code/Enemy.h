@@ -27,15 +27,16 @@ protected:
     // How much health has it got?
     float m_Health;
     // Is it still alive?
-    bool m_Alive;
+    //bool m_Alive;
+
+    bool m_Dead = false;
 
     // Public prototypes go here    
 public:
 
     // Handle when a bullet hits a Enemy
-    virtual bool hit() = 0;
-    // Find out if the Enemy is alive
-    bool isAlive();
+    virtual void hit() = 0;
+
     // Spawn a new Enemy
     virtual void spawn(float startX, float startY) = 0;
     // Return a rectangle that is the position in the world
@@ -45,6 +46,7 @@ public:
     // Update the Enemy each frame
     virtual void update(float elapsedTime, Vector2f playerLocation) = 0;
 
-    Vector2f getVector2f();
+    void sendShadowRealm();
 
+    bool getm_Dead();
 };

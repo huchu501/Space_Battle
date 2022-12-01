@@ -9,7 +9,7 @@ class Enemy1 : public Enemy
 {
 public:
 	virtual void spawn(float startX, float startY) override;
-	virtual bool hit() override;
+	virtual void hit() override;
 	virtual void update(float elapsedTime, Vector2f playerLocation) override;
 	
 };

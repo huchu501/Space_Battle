@@ -31,6 +31,8 @@ void Engine::run()
 
 		input();
 		update(dtAsSeconds);
+		updateEnemies(dtAsSeconds);
+		updateCollisions();
 		draw();
 	}
 }

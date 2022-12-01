@@ -71,15 +71,10 @@ void Projectile::update(float elapsedTime)
 	// Move the bullet
 	m_Sprite.setPosition(m_Position);
 	// Has the bullet gone out of range?
-	if (m_Position.y < 50) //-50
+	if (m_Position.y < 10)
 	{
 		stop();
 	}
-}
-
-Vector2f Projectile::getVector2f()
-{
-	return m_Position;
 }
 
 void Projectile::setPosition(float x, float y)

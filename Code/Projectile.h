@@ -66,7 +66,5 @@ public:
 	// update the projectiles each frame
 	void update(float elapsedTime);
 
-	Vector2f getVector2f();
-
 	void setPosition(float x, float y);
 };

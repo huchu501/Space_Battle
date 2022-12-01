@@ -9,16 +9,12 @@ void Enemy::spawn(float startX, float startY)
     //Make this virtual
 }
 
-bool Enemy::hit()
+void Enemy::hit()
 {
     //Make this virtual
-    return true;
 }
 
-bool Enemy::isAlive()
-{
-    return m_Alive;
-}
+
 FloatRect Enemy::getPosition()
 {
     return m_Sprite.getGlobalBounds();
@@ -59,8 +55,13 @@ void Enemy::update(float elapsedTime,
     m_Sprite.setPosition(m_Position);
 }
 
-Vector2f Enemy::getVector2f()
+void Enemy::sendShadowRealm()
 {
-    return m_Position;
+    m_Dead = true;
+    m_Sprite.setPosition(2000,2000);
 }
 
+bool Enemy::getm_Dead()
+{
+    return m_Dead;
+}

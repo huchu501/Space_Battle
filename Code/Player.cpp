@@ -145,18 +145,19 @@ void Player::update(float elapsedTime, Clock imgclock)
 
 	if (m_SpacePressed && updateProjTime.asMilliseconds() > timeToShoot)
 	{
-		if(MaxClip < 100)
+		if(MaxClip < 100) //100
 		{
 			p1.push_back(new Projectile);
 			p1.back()->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
-			timeToShoot = updateProjTime.asMilliseconds() + 1000;//timetoshoot dictates projectile speed
+			timeToShoot = updateProjTime.asMilliseconds() + 100;//timetoshoot dictates projectile speed
 			MaxClip++;
 		}
 		else
 		{
+			timeToShoot = updateProjTime.asMilliseconds() + 100;
 			p1[clip]->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
 			clip++;
-				if (clip > 99)
+				if (clip > 99) //99
 					clip = 0;
 		}
 	}
@@ -167,6 +168,8 @@ void Player::update(float elapsedTime, Clock imgclock)
 		{
 			p1[i]->update(elapsedTime);
 		}
+		else
+			stopProjectile(i);
 	}
 }
 
@@ -206,12 +209,13 @@ int Player::getProjectileSize()
 	return p1.size();
 }
 
-Vector2f Player::getVector2f(int i)
+FloatRect Player::getProjectilePosition(int i)
 {
-	return p1[i]->getVector2f();
+	return p1[i]->getPosition();
 }
 
 void Player::stopProjectile(int i)
 {
 	p1[i]->stop();
+	p1[i]->setPosition(2000, 3000);
 }
