@@ -4,16 +4,29 @@ void Engine::updateCollisions()
 {
 	if (state == State::PLAYING)
 	{
-		//Checks collision of friendly projectile and enemy ship
+		//Checks collision of player1 projectiles and enemy ships
 		for (int i = 0; i < player1.getProjectileSize(); i++)
 		{
-			for (int j = 0; j < enemy1.size(); j++)
+			for (int j = 0; j < enemyContainer.size(); j++)
 			{
-				checkCol = col.checkCollision(player1.getProjectilePosition(i), enemy1[j]->getPosition());
+				checkCol = col.checkCollision(player1.getProjectilePosition(i), enemyContainer[j]->getPosition());
 				if (checkCol)
 				{
-					enemy1[j]->hit(); //reduces health till death
+					enemyContainer[j]->hit(); //reduces health till death
 					player1.stopProjectile(i); //sends projectile off map
+				}
+			}
+		}
+		//Checks collision of player2 projectiles and enemy ships
+		for (int i = 0; i < player2.getProjectileSize(); i++)
+		{
+			for (int j = 0; j < enemyContainer.size(); j++)
+			{
+				checkCol = col.checkCollision(player2.getProjectilePosition(i), enemyContainer[j]->getPosition());
+				if (checkCol)
+				{
+					enemyContainer[j]->hit(); //reduces health till death
+					player2.stopProjectile(i); //sends projectile off map
 				}
 			}
 		}

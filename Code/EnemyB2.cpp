@@ -1,6 +1,6 @@
-#include "Enemy1.h"
+#include "EnemyB2.h"
 
-void Enemy1::spawn(float startX, float startY)
+void EnemyB2::spawn(float startX, float startY)
 {
     m_Sprite = Sprite(TextureHolder::GetTexture("graphics/enemy-small.png"));
     m_Explosion = Sprite(TextureHolder::GetTexture("graphics/explosion1.png"));
@@ -23,21 +23,19 @@ void Enemy1::spawn(float startX, float startY)
     m_Dead = false;
 }
 
-void Enemy1::hit()
+void EnemyB2::hit()
 {
     m_Health--;
-    m_Sprite.setColor(Color(255,255,255));
+    m_Sprite.setColor(Color(255, 255, 255));
     if (m_Health < 0)
     {
-        // dead
-        m_Sprite = m_Explosion;
-        //m_Alive = true;
+        // dead, can update score here maybe
         sendShadowRealm();
     }
     // injured but not dead yet
 }
 
-void Enemy1::update(float elapsedTime, Vector2f playerLocation)
+void EnemyB2::update(float elapsedTime, Vector2f playerLocation)
 {
     float playerX = playerLocation.x;
     float playerY = playerLocation.y;

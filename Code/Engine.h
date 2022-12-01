@@ -4,7 +4,8 @@
 #include "Player1.h"
 #include "Player2.h"
 #include "TextureHolder.h"
-#include "Enemy1.h"
+#include "EnemyB1.h"
+#include "EnemyB2.h"
 #include "Hud.h"
 #include "Projectile.h"
 #include "Collision.h"
@@ -43,7 +44,7 @@ private:
 
 	Collision col;
 
-	vector<Enemy*> enemy1;   //remember to delete the pointers
+	vector<Enemy*> enemyContainer;   //remember to delete the pointers
 	bool checkCol, checkCol2;
 
 	int spawnTime = 0;

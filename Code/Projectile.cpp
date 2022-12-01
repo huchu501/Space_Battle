@@ -54,12 +54,6 @@ void Projectile::shoot(float startX, float startY, float xTarget, float yTarget)
 		m_ProjectileDistanceY *= -1;
 	}
 
-	float range = 1000;
-
-	m_MinX = startX - range;
-	m_MaxX = startX + range;
-	m_MinY = startY - range;
-	m_MaxY = startY + range;
 	m_Sprite.setPosition(m_Position);
 }
 

@@ -25,7 +25,7 @@ void Engine::draw()
 		//Draw enemies
 		for (int i = 0; i < numOfEnemy; i++)
 		{
-			window.draw(enemy1[i]->getSprite());
+			window.draw(enemyContainer[i]->getSprite());
 		}
 		window.display();
 	}

@@ -5,7 +5,7 @@
 using namespace sf;
 using namespace std;
 
-class Enemy1 : public Enemy
+class EnemyB1 : public Enemy
 {
 public:
 	virtual void spawn(float startX, float startY) override;
