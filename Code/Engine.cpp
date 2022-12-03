@@ -2,7 +2,7 @@
 #include "Player.h"
 Engine::Engine()
 {
-	state = State::UPGRADE;
+	state = State::MENU;
 
 	resolution.x = VideoMode::getDesktopMode().width;
 	resolution.y = VideoMode::getDesktopMode().height;
@@ -10,7 +10,10 @@ Engine::Engine()
 	window.create(VideoMode(resolution.x, resolution.y), "Space Battle", Style::Fullscreen);
 
 	mainView.setSize(resolution);
-	mainView.reset(sf::FloatRect(0, 0, VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height));
+	mainView.reset(sf::FloatRect(0, 0, resolution.x, resolution.y));
+
+	hudView.setSize(resolution);
+	hudView.reset(sf::FloatRect(0, 0, resolution.x, resolution.y));
 }
 /*------------------------------------------------*/
 /*                 MAIN GAME LOOP                 */
@@ -23,7 +26,8 @@ void Engine::run()
 
 	while (window.isOpen())
 	{
-		dt = clock.restart();
+		// update time
+		Time dt = clock.restart();
 		// keep on updating the total game time
 		gameTimeTotal += dt;
 		// convert float to seconds

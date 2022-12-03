@@ -7,18 +7,20 @@ using namespace sf;
 
 class Hud
 {
-
 private:
-
 	Font font;
+	Text menuText;
+	Text menuSubtext;
+	Text pausedText;
 	Text scoreText;
-	
-
-
-
+	Text gameOverText;
 public:
 	Hud();
+	Text getMenuText();
+	Text getMenuSubtext();
 	Text getScoreText();
-
+	Text getPausedText();
+	Text getGameOverText();
+	void setScoreText(String text);
 
 };

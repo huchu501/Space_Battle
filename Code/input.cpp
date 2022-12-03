@@ -28,7 +28,7 @@ void Engine::input()
 			}
 
 			//Start the game with num1
-			if (Keyboard::isKeyPressed(Keyboard::Num1) && state == State::UPGRADE)
+			if (Keyboard::isKeyPressed(Keyboard::Num1) && state == State::MENU)
 			{
 				state = State::PLAYING;
 			}

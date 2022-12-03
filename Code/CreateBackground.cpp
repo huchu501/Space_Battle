@@ -58,3 +58,12 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 	background.setColor(Color(r, g, b, t));
 	return background;
 }
+
+// background for menu screen
+Sprite CreateBackground::getMenuBackground()
+{
+	textureMenu = TextureHolder::GetTexture("graphics/SpaceBackground.png");
+	menuBackground.setTexture(textureMenu);
+	menuBackground.setPosition(0, 0);
+	return menuBackground;
+}

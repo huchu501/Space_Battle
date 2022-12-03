@@ -2,9 +2,17 @@
 
 void Engine::draw()
 {
+	window.clear();
+	if (state == State::MENU)
+	{
+		window.setView(hudView);
+		window.draw(background.getMenuBackground());
+		window.draw(hud.getMenuText());
+		window.draw(hud.getMenuSubtext());
+	}
 	if (state == State::PLAYING)
 	{
-		window.clear();
+		// DRAW ON MAIN VIEW
 		window.setView(mainView);
 		window.draw(background.getBackground(bgClock));
 		window.draw(hud.getScoreText());
@@ -27,6 +35,24 @@ void Engine::draw()
 		{
 			window.draw(enemyContainer[i]->getSprite());
 		}
-		window.display();
+
+		// DRAW ON HUD VIEW
+		window.setView(hudView);
+		// hud elements
+		window.draw(hud.getScoreText());
+		window.draw(healthBar.getHealthBar());
 	}
+	if (state == State::PAUSED)
+	{
+		window.setView(hudView);
+		window.draw(hud.getPausedText());
+	}
+	if (state == State::GAME_OVER)
+	{
+		window.setView(hudView);
+		window.draw(background.getMenuBackground());
+		window.draw(hud.getGameOverText());
+	}
+	window.display();
+
 }

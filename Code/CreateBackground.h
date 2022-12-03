@@ -6,8 +6,10 @@ class CreateBackground
 {
 private:
 	bool change = true;
-	Texture textureBackground;
 	Sprite background;
+	Texture textureBackground;
+	Sprite menuBackground;
+	Texture textureMenu;
 	Uint8 t, r, g, b;
 	Time updateImgTime;
 	float i;
@@ -17,4 +19,5 @@ private:
 public:
 	CreateBackground();
 	Sprite getBackground(Clock);
+	Sprite getMenuBackground();
 };

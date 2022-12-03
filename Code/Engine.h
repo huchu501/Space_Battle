@@ -9,20 +9,21 @@
 #include "Hud.h"
 #include "Projectile.h"
 #include "Collision.h"
+#include "HealthBar.h"
 using namespace sf;
 
 class Engine
 {
 private:
-	enum class State { PAUSED, UPGRADE, GAME_OVER, PLAYING, MENU };
+	enum class State { PAUSED, GAME_OVER, PLAYING, MENU };
 	State state;
 	Vector2f resolution;
 	RenderWindow window;
 
 	TextureHolder th;
 
-	// create a mainView
-	View mainView;
+	// create a mainView and hudView
+	View mainView, hudView;
 
 	// Here is our clock for timing everything
 	Clock clock, bgClock;
@@ -40,7 +41,10 @@ private:
 	//Create Background
 	CreateBackground background;
 
+	// HUD variables
 	Hud hud;
+	HealthBar healthBar;
+	int score = 0;
 
 	Collision col;
 
