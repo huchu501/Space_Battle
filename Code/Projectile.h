@@ -46,7 +46,7 @@ protected:
 
 public:
 	// default constructor
-	Projectile();
+	Projectile(String tex);
 
 	// stop the projectile
 	void stop();
@@ -67,4 +67,5 @@ public:
 	void update(float elapsedTime);
 
 	void setPosition(float x, float y);
+	void setOrigin(float x, float y);
 };

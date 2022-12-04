@@ -30,10 +30,18 @@ void Engine::draw()
 			window.draw(player2.getProjectileSprite(i));
 		}
 
-		//Draw enemies
+		//Draw enemies and there projectiles
 		for (int i = 0; i < numOfEnemy; i++)
 		{
 			window.draw(enemyContainer[i]->getSprite());
+			//If shooter, draw projectiles:
+			if (enemyContainer[i]->getType() > 1)
+			{
+				for (int j = 0; j < 100; j++)
+				{
+					window.draw(enemyContainer[i]->getProjSprite(j));
+				}
+			}
 		}
 
 		// DRAW ON HUD VIEW

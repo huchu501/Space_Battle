@@ -5,11 +5,13 @@
 #include "Player2.h"
 #include "TextureHolder.h"
 #include "EnemyB1.h"
-#include "EnemyB2.h"
+//#include "EnemyB2.h"
+#include "EnemyS1.h"
 #include "Hud.h"
 #include "Projectile.h"
 #include "Collision.h"
 #include "HealthBar.h"
+
 using namespace sf;
 
 class Engine
@@ -51,10 +53,13 @@ private:
 	vector<Enemy*> enemyContainer;   //remember to delete the pointers
 	bool checkCol, checkCol2;
 
-	int spawnTime = 0;
-	int enemySpawnPoint = 0;
-	int numOfEnemy = 0;
+	float spawnTime = 0;
+	float rateOfSpawn = 2.5; //Higher the number, slower the enemies spawn
+	int enemySpawnPoint = 0; //Random num for spawn point on x axis
+	int numOfEnemy = 50;  //Create 50 enemies on stack
 	int enemyIterator = 0;
+	int enemyType; //random num for Bomber or shooter
+
 	void input();
 	void update(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);

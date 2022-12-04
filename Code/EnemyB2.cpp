@@ -21,6 +21,8 @@ void EnemyB2::spawn(float startX, float startY)
     // Set its position
     m_Sprite.setPosition(m_Position);
     m_Dead = false;
+
+    type = 2;
 }
 
 void EnemyB2::hit()
@@ -35,7 +37,7 @@ void EnemyB2::hit()
     // injured but not dead yet
 }
 
-void EnemyB2::update(float elapsedTime, Vector2f playerLocation)
+void EnemyB2::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
 {
     float playerX = playerLocation.x;
     float playerY = playerLocation.y;
@@ -70,5 +72,10 @@ void EnemyB2::update(float elapsedTime, Vector2f playerLocation)
         * 180) / 3.141;
     m_Sprite.setRotation(angle);
 
+}
+
+Sprite EnemyB2::getProjSprite(int i) 
+{
+    return emptySprite;
 }
 

@@ -4,41 +4,41 @@ void Engine::updateEnemies(float dtAsSeconds)
 {
 	if (state == State::PLAYING)
 	{
-		//Spawns in an enemy based on spawnTime(seconds), caps enemies at 5;
-		if (gameTimeTotal.asSeconds() > spawnTime && numOfEnemy < 100)
+		//Spawns in an enemy based on spawnTime(seconds)
+		if (gameTimeTotal.asSeconds() > spawnTime)
 		{
-			enemySpawnPoint = rand() % 1891;
-			enemyContainer.push_back(new EnemyB1);  //need to randomize this for different enemies
-			enemyContainer.back()->spawn(enemySpawnPoint, -10);
-			enemySpawnPoint = rand() % 1891;
-			enemyContainer.push_back(new EnemyB2);  //need to randomize this for different enemies
-			enemyContainer.back()->spawn(enemySpawnPoint, -10);
-			spawnTime += 5;  //controlls when next enemy will begin moving(seconds)
-			numOfEnemy += 2;
-		}
-		else if (gameTimeTotal.asSeconds() > spawnTime)
-		{
-			enemySpawnPoint = rand() % 1891;
+			enemySpawnPoint = rand() % 1890;
 			enemyContainer[enemyIterator]->spawn(enemySpawnPoint, -10);
-			spawnTime += 5;
+
+			spawnTime += rateOfSpawn;  //rate of spawn
 			enemyIterator += 1;
-			if (enemyIterator > 4)
+
+			if (enemyIterator >= enemyContainer.size())
 				enemyIterator = 0;
 		}
 
 		//updates enemies
 		for (int i = 0; i < enemyContainer.size(); i++)
 		{
-			if (i % 2 == 0)
+			switch (enemyContainer[i]->getType())
 			{
+			case 0:
 				if (!enemyContainer[i]->getm_Dead())
-					enemyContainer[i]->update(dtAsSeconds, player1.getCenter());  //updates each enemy
-			}
-			else
-			{
+					enemyContainer[i]->update(dtAsSeconds, player1.getCenter(), bgClock);  //updates each enemy
+				break;
+			case 1:
 				if (!enemyContainer[i]->getm_Dead())
-					enemyContainer[i]->update(dtAsSeconds, player2.getCenter());  //updates each enemy
+					enemyContainer[i]->update(dtAsSeconds, player2.getCenter(), bgClock);
+				break;
+			case 2:
+				if (!enemyContainer[i]->getm_Dead())
+					enemyContainer[i]->update(dtAsSeconds, player1.getCenter(), bgClock);  //updates each enemy
+				break;
+			case 3:
+				if (!enemyContainer[i]->getm_Dead())
+					enemyContainer[i]->update(dtAsSeconds, player2.getCenter(), bgClock);
 			}
+
 		}
 	}
 }

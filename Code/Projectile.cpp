@@ -1,11 +1,15 @@
 #include "Projectile.h"
 
-Projectile::Projectile()
+
+
+
+Projectile::Projectile(String tex)
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Graphics/projectile1.png"));
-	m_Sprite.setOrigin(10, 25);
+	m_Sprite = Sprite((TextureHolder::GetTexture(tex)));
+	m_Sprite.setOrigin(15, 15);
 	m_Speed = START_SPEED;
 }
+
 void Projectile::stop()
 {
 	m_InFlight = false;
@@ -69,9 +73,14 @@ void Projectile::update(float elapsedTime)
 	{
 		stop();
 	}
+
 }
 
 void Projectile::setPosition(float x, float y)
 {
 	m_Sprite.setPosition(x, y);
+}
+void Projectile::setOrigin(float x, float y)
+{
+
 }

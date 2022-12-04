@@ -1,5 +1,11 @@
 #include "EnemyB1.h"
 
+
+EnemyB1::EnemyB1()
+{
+    type = rand() % 2;
+}
+
 void EnemyB1::spawn(float startX, float startY)
 {
     m_Sprite = Sprite(TextureHolder::GetTexture("graphics/enemy-small.png"));
@@ -16,7 +22,7 @@ void EnemyB1::spawn(float startX, float startY)
     m_Position.x = startX;
     m_Position.y = startY;
     // Set its origin to its center
-    m_Sprite.setOrigin(14, 14);
+    m_Sprite.setOrigin(20, 20);
     m_Explosion.setOrigin(14, 14);
     // Set its position
     m_Sprite.setPosition(m_Position);
@@ -35,7 +41,7 @@ void EnemyB1::hit()
     // injured but not dead yet
 }
 
-void EnemyB1::update(float elapsedTime, Vector2f playerLocation)
+void EnemyB1::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
 {
     float playerX = playerLocation.x;
     float playerY = playerLocation.y;
@@ -70,5 +76,10 @@ void EnemyB1::update(float elapsedTime, Vector2f playerLocation)
         * 180) / 3.141;
     m_Sprite.setRotation(angle);
 
+}
+
+Sprite EnemyB1::getProjSprite(int i)
+{
+    return emptySprite;
 }
 
