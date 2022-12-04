@@ -43,7 +43,6 @@ void Engine::updateCollisions()
 			if (checkCol)
 			{
 				enemyContainer[j]->sendShadowRealm(); //reduces health till death
-				window.draw()
 				//Make player lose health here
 			}
 		}
