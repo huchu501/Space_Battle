@@ -1,9 +1,10 @@
 #include "Collision.h"
 
-bool Collision::checkCollision(FloatRect projectile, FloatRect enemy)
+// player can be either the projectile or the player ship
+bool Collision::checkCollision(FloatRect player, FloatRect enemy)
 {
 	hitDetected = false;
-	if(projectile.intersects(enemy))
+	if(player.intersects(enemy))
 	//if(abs(projectile.x-enemy.x) <= 20 && abs(projectile.y - enemy.y) <= 20)
 	{
 		hitDetected = true;

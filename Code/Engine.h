@@ -41,6 +41,9 @@ private:
 	//Create Background
 	CreateBackground background;
 
+	// time as seconds
+	float dtAsSeconds;
+
 	// HUD variables
 	Hud hud;
 	HealthBar healthBar;
@@ -49,7 +52,7 @@ private:
 	Collision col;
 
 	vector<Enemy*> enemyContainer;   //remember to delete the pointers
-	bool checkCol, checkCol2;
+	bool checkCol, checkColP1, checkColP2;
 
 	int spawnTime = 0;
 	int enemySpawnPoint = 0;

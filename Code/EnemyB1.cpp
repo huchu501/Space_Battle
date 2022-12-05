@@ -26,7 +26,7 @@ void EnemyB1::spawn(float startX, float startY)
 void EnemyB1::hit()
 {
     m_Health--;
-    m_Sprite.setColor(Color(255,255,255));
+    m_Sprite.setColor(Color(255, 255, 255));
     if (m_Health < 0)
     {
         // dead, can update score here maybe
@@ -65,9 +65,7 @@ void EnemyB1::update(float elapsedTime, Vector2f playerLocation)
     // Move the sprite
     m_Sprite.setPosition(m_Position);
 
-    float angle = (atan2(playerY - m_Position.y,
-        playerX - m_Position.x)
-        * 180) / 3.141;
+    float angle = (atan2(playerY - m_Position.y, playerX - m_Position.x) * 180) / 3.141;
     m_Sprite.setRotation(angle);
 
 }

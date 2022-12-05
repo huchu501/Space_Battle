@@ -1,5 +1,4 @@
 #include "Player2.h"
-#include "TextureHolder.h"
 
 Player2::Player2()
 {

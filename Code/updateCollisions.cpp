@@ -30,6 +30,15 @@ void Engine::updateCollisions()
 				}
 			}
 		}
-
+		// check collisions of player1 or 2 ships and enemy ships
+		for (int z = 0; z < enemyContainer.size(); z++)
+		{
+			checkColP1 = col.checkCollision(player1.getPosition(), enemyContainer[z]->getPosition());
+			checkColP2 = col.checkCollision(player2.getPosition(), enemyContainer[z]->getPosition());
+			if (checkColP1 || checkColP2)
+			{
+				player1.decHealth(); //reduces health till death
+			}
+		}
 	}
 }

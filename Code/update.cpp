@@ -17,30 +17,36 @@ void Engine::update(float dtAsSeconds)
 		// spawn the two players at its spawn location
 		player1.spawn(space, resolution, tileSize);
 		player2.spawn(space, resolution, tileSize);
+		player1.resetPlayerStats();
+		player2.resetPlayerStats();
 	}
 	
 	if (state == State::PLAYING)
 	{
-
 		// update the two players
 		player1.update(dtAsSeconds, bgClock);
 		player2.update(dtAsSeconds, bgClock);
+		// update healthBar
+		healthBar.updateHealthBar(player1.getHealth());
+		// end the game when health is 0
+		if (healthBar.getHeartCount() == 0) { state = State::GAME_OVER; }
+
+		// update HUD
+		float msSinceLastHUDUpdate = 0;
+		float msHUDFrameInterval = 1000;
+		msSinceLastHUDUpdate++; // increment the number of frames since last hud calculation
+		if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
+		{  // update score text
+			stringstream ssScore;
+			ssScore << "Score:" << 55;
+			hud.setScoreText(ssScore.str());
+
+			msSinceLastHUDUpdate = 0;
+		}
 	}
 	
 	if (state == State::GAME_OVER)
 	{
-		
 	}
-	// update HUD
-	float msSinceLastHUDUpdate = 0;
-	float msHUDFrameInterval = 1000;
-	msSinceLastHUDUpdate++; // increment the number of frames since last hud calculation
-	if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
-	{  // update score text
-		stringstream ssScore;
-		ssScore << "Score:" << 55;
-		hud.setScoreText(ssScore.str());
-
-		msSinceLastHUDUpdate = 0;
-	}
+	
 }

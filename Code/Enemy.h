@@ -27,8 +27,6 @@ protected:
     // How much health has it got?
     float m_Health;
     // Is it still alive?
-    //bool m_Alive;
-
     bool m_Dead = false;
 
     // Public prototypes go here    

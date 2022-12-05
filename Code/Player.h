@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Projectile.h"
+#include "TextureHolder.h"
 using namespace sf;
 
 class Player
@@ -8,7 +9,7 @@ class Player
 // protected, so that the subclasses can use all these variables
 protected:
 	const float START_SPEED = 200;
-	const float START_HEALTH = 100;
+	const float START_HEALTH = 6;
 
 	// position of the player on screen
 	Vector2f m_Position;
@@ -37,7 +38,7 @@ protected:
 	bool m_LeftPressed;
 	bool m_RightPressed;
 	bool m_SpacePressed;
-	// How much health has the player got?
+	// health from 0 to 6
 	int m_Health;
 	// What is the maximum health the player can have
 	int m_MaxHealth;
@@ -80,6 +81,9 @@ public:
 
 	// How much health has the player currently got?
 	int getHealth();
+
+	// Decrement player health when got hit by enemy ship
+	void decHealth();
 
 	// The next four functions move the player
 	void moveLeft();

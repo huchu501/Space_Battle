@@ -23,15 +23,15 @@ Hud::Hud()
 	pausedText.setString("          Game paused!\n\nPress Enter to continue");
 	// GAME_OVER
 	gameOverText.setFont(font);
-	gameOverText.setCharacterSize(125);
+	gameOverText.setCharacterSize(100);
 	gameOverText.setFillColor(Color::White);
-	gameOverText.setPosition(400, 400);
+	gameOverText.setPosition(170, 430);
 	gameOverText.setString("Press Enter to replay");
 	// score
 	scoreText.setFont(font);
 	scoreText.setCharacterSize(55);
 	scoreText.setFillColor(Color::White);
-	scoreText.setPosition(20, 0);	
+	scoreText.setPosition(500, 0);	
 }
 // getters
 Text Hud::getMenuText()

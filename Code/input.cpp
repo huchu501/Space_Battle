@@ -33,7 +33,11 @@ void Engine::input()
 				state = State::PLAYING;
 			}
 
-
+			// Reset the game and start over again
+			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::GAME_OVER)
+			{
+				state = State::MENU;
+			}
 		}
 
 		player1.handleInput();

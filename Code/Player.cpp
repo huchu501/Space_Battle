@@ -5,7 +5,7 @@ bool Player::hit(Time timeHit)
 	if (timeHit.asMilliseconds() - m_LastHit.asMilliseconds() > 200)// 2 tenths of second
 	{
 		m_LastHit = timeHit;
-		m_Health -= 10;
+		m_Health -= 1;
 		return true;
 	}
 	else
@@ -42,6 +42,11 @@ Sprite Player::getProjectileSprite(int i)
 int Player::getHealth()
 {
 	return m_Health;
+}
+
+void Player::decHealth()
+{
+	m_Health--;
 }
 
 void Player::moveLeft()
@@ -183,7 +188,6 @@ void Player::upgradeHealth()
 {
 	// 20% max health upgrade
 	m_MaxHealth += (START_HEALTH * .2);
-
 }
 
 void Player::increaseHealthLevel(int amount)
