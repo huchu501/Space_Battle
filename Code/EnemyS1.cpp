@@ -69,7 +69,7 @@ void EnemyS1::stopProjectile()
     for (int i = 0; i < 100; i++)
     {
         s1[i].stop();
-        s1[i].setPosition(400, 600);
+        s1[i].setPosition(5000, 5000);
     }
 }
 void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock)
@@ -91,7 +91,7 @@ void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock
         else
         {
             s1[i].stop();
-            s1[i].setPosition(200, 500);
+            s1[i].setPosition(5000, 5000);
         }
 
     }

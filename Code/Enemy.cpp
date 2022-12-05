@@ -32,7 +32,7 @@ void Enemy::update(float elapsedTime, Vector2f playerLocation, Clock imgClock)
 void Enemy::sendShadowRealm()
 {
     m_Dead = true;
-    m_Sprite.setPosition(100,100);
+    m_Sprite.setPosition(5000,5000);
 }
 
 bool Enemy::getm_Dead()
