@@ -4,6 +4,11 @@
 EnemyS1::EnemyS1()
 {
     type = rand() % ((3 - 2) + 1) + 2;
+    for (int i = 0; i < 100; i++)  //create 100 projectiles
+    {
+        s1.push_back(new Projectile{ "Graphics/enemy_projectile.png" });
+        s1.back()->setOrigin(10, 24.5);
+    }
 }
 
 void EnemyS1::spawn(float startX, float startY)
@@ -62,22 +67,22 @@ void EnemyS1::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
 
 Sprite EnemyS1::getProjSprite(int i)
 {
-    return s1[i].getSprite();
+    return s1[i]->getSprite();
 }
 void EnemyS1::stopProjectile()
 {
     for (int i = 0; i < 100; i++)
     {
-        s1[i].stop();
-        s1[i].setPosition(5000, 5000);
+        s1[i]->stop();
+        s1[i]->setPosition(5000, 5000);
     }
 }
 void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock)
 {
     if (updateProjTime.asMilliseconds() > timeToShoot)
     {
-        s1[clip].setOrigin(15, 15);
-        s1[clip].shoot(m_Position.x, m_Position.y, playerLocation.x, playerLocation.y);
+        s1[clip]->setOrigin(15, 15);
+        s1[clip]->shoot(m_Position.x, m_Position.y, playerLocation.x, playerLocation.y);
         timeToShoot = updateProjTime.asMilliseconds() + 3000; //lower number for faster rate
         clip++;
         if (clip > 99)
@@ -86,12 +91,12 @@ void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock
 
     for (int i = 0; i < 100; i++)
     {
-        if (s1[i].isInFlight())
-            s1[i].update(elapsedTime);
+        if (s1[i]->isInFlight())
+            s1[i]->update(elapsedTime);
         else
         {
-            s1[i].stop();
-            s1[i].setPosition(5000, 5000);
+            s1[i]->stop();
+            s1[i]->setPosition(5000, 5000);
         }
 
     }
@@ -99,7 +104,7 @@ void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock
     {
         for (int i = 0; i < 100; i++)
         {
-            s1[i].stop();
+            s1[i]->stop();
         }
         gameRestart = false;
     }
@@ -107,5 +112,5 @@ void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock
 }
 FloatRect EnemyS1::getProjectilePosition(int i)
 {
-    return s1[i].getPosition();
+    return s1[i]->getPosition();
 }

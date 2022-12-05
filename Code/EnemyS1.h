@@ -20,26 +20,6 @@ public:
 private:
 	int clip = 0;
 	Time updateProjTime;
-	//Projectile s1[100];
-	Projectile s1[100] = { "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-						   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-		                   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-		                   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-		                   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-		                   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-		                   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-		                   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-		                   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-		                   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-		                   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-						   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-						   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-						   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-						   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-						   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-						   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-						   "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png",
-						   "Graphics/enemy_projectile.png","Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,
-					       "Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" ,"Graphics/enemy_projectile.png" };
+	vector<Projectile*> s1;
 
 };
