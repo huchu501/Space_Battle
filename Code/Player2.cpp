@@ -29,6 +29,11 @@ void Player2::spawn(IntRect space, Vector2f resolution, int tileSize)
 	// Store the resolution for future use
 	m_Resolution.x = resolution.x;
 	m_Resolution.y = resolution.y;
+
+	//reset ship info
+	m_Speed = START_SPEED;
+	m_Health = START_HEALTH;
+	m_MaxHealth = START_HEALTH;
 }
 
 // Virtual function overriding Player.h pure virtual function handleInput()
@@ -66,7 +71,7 @@ void Player2::handleInput()
 	{
 		stopRight();
 	}
-	if (Keyboard::isKeyPressed(Keyboard::Numpad0))
+	if (Keyboard::isKeyPressed(Keyboard::RShift))
 	{
 		shootPressed();
 	}

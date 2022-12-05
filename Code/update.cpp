@@ -31,22 +31,24 @@ void Engine::update(float dtAsSeconds)
 		// end the game when health is 0
 		if (healthBar.getHeartCount() == 0) { state = State::GAME_OVER; }
 
-		// update HUD
-		float msSinceLastHUDUpdate = 0;
-		float msHUDFrameInterval = 1000;
-		msSinceLastHUDUpdate++; // increment the number of frames since last hud calculation
-		if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
-		{  // update score text
-			stringstream ssScore;
-			ssScore << "Score:" << 55;
-			hud.setScoreText(ssScore.str());
-
-			msSinceLastHUDUpdate = 0;
-		}
+		
 	}
 	
 	if (state == State::GAME_OVER)
 	{
 	}
-	
+
+	// update HUD
+	float msSinceLastHUDUpdate = 0;
+	float msHUDFrameInterval = 1000;
+	msSinceLastHUDUpdate++; // increment the number of frames since last hud calculation
+	if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
+	{  // update score text
+		stringstream ssScore;
+		ssScore << "Score:" << 55;
+		hud.setScoreText(ssScore.str());
+
+		msSinceLastHUDUpdate = 0;
+	}
 }
+
