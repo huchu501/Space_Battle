@@ -4,8 +4,6 @@
 EnemyS1::EnemyS1()
 {
     type = rand() % ((3 - 2) + 1) + 2;
-   
- 
 }
 
 void EnemyS1::spawn(float startX, float startY)
@@ -71,7 +69,7 @@ void EnemyS1::stopProjectile()
     for (int i = 0; i < 100; i++)
     {
         s1[i].stop();
-        s1[i].setPosition(2000, 3000);
+        s1[i].setPosition(400, 600);
     }
 }
 void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock)
@@ -93,10 +91,19 @@ void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock
         else
         {
             s1[i].stop();
-            s1[i].setPosition(5000, 5000);
+            s1[i].setPosition(200, 500);
         }
 
     }
+    if (gameRestart)
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            s1[i].stop();
+        }
+        gameRestart = false;
+    }
+
 }
 FloatRect EnemyS1::getProjectilePosition(int i)
 {

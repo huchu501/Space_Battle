@@ -29,9 +29,9 @@ Hud::Hud()
 	gameOverText.setString("Press Enter to replay");
 	// score
 	scoreText.setFont(font);
-	scoreText.setCharacterSize(55);
+	scoreText.setCharacterSize(100);
 	scoreText.setFillColor(Color::White);
-	scoreText.setPosition(500, 0);	
+	scoreText.setPosition(500, 500);	
 }
 // getters
 Text Hud::getMenuText()

@@ -2,7 +2,6 @@
 
 void Engine::updateEnemies(float dtAsSeconds)
 {
-
 	if (state == State::PLAYING)
 	{
 		enemyTime = bgClock.getElapsedTime();
@@ -14,11 +13,9 @@ void Engine::updateEnemies(float dtAsSeconds)
 
 			spawnTime += rateOfSpawn;  //rate of spawn
 			enemyIterator += 1;
-
 			if (enemyIterator >= enemyContainer.size())
 				enemyIterator = 0;
 		}
-
 		//updates enemies
 		for (int i = 0; i < enemyContainer.size(); i++)
 		{
@@ -47,7 +44,6 @@ void Engine::updateEnemies(float dtAsSeconds)
 				enemyContainer[i]->updateProjectile(dtAsSeconds, player2.getCenter(), bgClock);
 				break;
 			}
-
 		}
 	}
 }

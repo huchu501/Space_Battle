@@ -134,6 +134,8 @@ public:
 
 	void sendShadowRealm();
 
+	void resetTimeToShoot();
+
 };
 
 

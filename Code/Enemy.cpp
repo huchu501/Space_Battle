@@ -32,7 +32,7 @@ void Enemy::update(float elapsedTime, Vector2f playerLocation, Clock imgClock)
 void Enemy::sendShadowRealm()
 {
     m_Dead = true;
-    m_Sprite.setPosition(2000,2000);
+    m_Sprite.setPosition(100,100);
 }
 
 bool Enemy::getm_Dead()
@@ -52,5 +52,11 @@ void Enemy::resetEnemy()
 {
     timeToShoot = 0;
     sendShadowRealm();
+    stopProjectile();
+    gameRestart = true;
+}
+void Enemy::stopProjectile()
+{
+
 }
 

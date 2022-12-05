@@ -9,6 +9,7 @@ Projectile::Projectile(String tex)
 void Projectile::stop()
 {
 	m_InFlight = false;
+	m_Sprite.setPosition(2000, 2000);
 }
 
 bool Projectile::isInFlight()
@@ -65,7 +66,7 @@ void Projectile::update(float elapsedTime)
 	// Move the bullet
 	m_Sprite.setPosition(m_Position);
 	// Has the bullet gone out of range?
-	if (m_Position.y < 10)
+	if (m_Position.y < 10|| m_Position.y > 2000)
 	{
 		stop();
 	}

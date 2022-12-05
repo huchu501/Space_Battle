@@ -19,11 +19,21 @@ void Engine::update(float dtAsSeconds)
 		player2.spawn(space, resolution, tileSize);
 		player1.resetPlayerStats();
 		player2.resetPlayerStats();
+		for (int i = 0; i < player1.getProjectileSize(); i++)
+		{
+			player1.stopProjectile(i);
+			player2.stopProjectile(i);
+		}
 	}
 	
 	if (state == State::PLAYING)
 	{
 		// update the two players
+		stringstream ssScore;
+		score++;
+		ssScore << "Score:" << score;
+		ssScore.str();
+		hud.setScoreText(ssScore.str());
 		player1.update(dtAsSeconds, bgClock);
 		player2.update(dtAsSeconds, bgClock);
 		// update healthBar
@@ -46,9 +56,7 @@ void Engine::update(float dtAsSeconds)
 	msSinceLastHUDUpdate++; // increment the number of frames since last hud calculation
 	if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
 	{  // update score text
-		stringstream ssScore;
-		ssScore << "Score:" << 55;
-		hud.setScoreText(ssScore.str());
+
 
 		msSinceLastHUDUpdate = 0;
 	}

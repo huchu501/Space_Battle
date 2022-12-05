@@ -214,3 +214,7 @@ void Player::stopProjectile(int i)
 	p1[i]->stop();
 	p1[i]->setPosition(2000, 3000);
 }
+void Player::resetTimeToShoot()
+{
+	timeToShoot = 0;
+}

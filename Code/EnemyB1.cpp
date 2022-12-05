@@ -92,3 +92,4 @@ FloatRect EnemyB1::getProjectilePosition(int i)
 {
     return getPosition();
 }
+

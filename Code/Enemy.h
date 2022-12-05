@@ -32,6 +32,8 @@ protected:
 
     bool m_Shooter = false;
 
+    bool gameRestart = false;
+
     int type;
 
     float timeToShoot = 0;
