@@ -31,12 +31,26 @@ void Engine::input()
 			if (Keyboard::isKeyPressed(Keyboard::Num1) && state == State::MENU)
 			{
 				state = State::PLAYING;
+				bgClock.restart();
+				spawnTime = 0;
+				background.resetBackground();
+				for (int i = 0; i < enemyContainer.size(); i++)
+				{
+					enemyContainer[i]->resetEnemy();
+				}
 			}
 
 			// Reset the game and start over again
 			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::GAME_OVER)
 			{
 				state = State::MENU;
+				bgClock.restart();
+				spawnTime = 0;
+				background.resetBackground();
+				for (int i = 0; i < enemyContainer.size(); i++)
+				{
+					enemyContainer[i]->resetEnemy();
+				}
 			}
 		}
 

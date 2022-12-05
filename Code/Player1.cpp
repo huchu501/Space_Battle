@@ -36,11 +36,6 @@ void Player1::spawn(IntRect space, Vector2f resolution, int tileSize)
 	// Store the resolution for future use
 	m_Resolution.x = resolution.x;
 	m_Resolution.y = resolution.y;
-
-	//reset ship info
-	m_Speed = START_SPEED;
-	m_Health = START_HEALTH;
-	m_MaxHealth = START_HEALTH;
 }
 
 // Virtual function overriding Player.h pure virtual function handleInput()

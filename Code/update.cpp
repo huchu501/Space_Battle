@@ -36,6 +36,8 @@ void Engine::update(float dtAsSeconds)
 	
 	if (state == State::GAME_OVER)
 	{
+		bgClock.restart();
+
 	}
 
 	// update HUD

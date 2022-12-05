@@ -34,6 +34,8 @@ protected:
 
     int type;
 
+    float timeToShoot = 0;
+
     // Public prototypes go here    
 public:
 
@@ -57,5 +59,5 @@ public:
     virtual void updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock) = 0;
     virtual FloatRect getProjectilePosition(int i) = 0;
     int getType();
-
+    void resetEnemy();
 };

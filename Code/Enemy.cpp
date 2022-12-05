@@ -47,6 +47,11 @@ int Enemy::getType()
 {
     return type;
 }
+
+void Enemy::resetEnemy()
+{
+    timeToShoot = 0;
+}
 //void Enemy::stopProjectile(int i)
 //{
 //

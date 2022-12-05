@@ -18,7 +18,6 @@ public:
 
 
 private:
-	float timeToShoot = 0;
 	int clip = 0;
 	Time updateProjTime;
 	//Projectile s1[100];

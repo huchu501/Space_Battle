@@ -20,4 +20,5 @@ public:
 	CreateBackground();
 	Sprite getBackground(Clock);
 	Sprite getMenuBackground();
+	void resetBackground();
 };

@@ -40,6 +40,7 @@ void Engine::updateCollisions()
 			{
 				enemyContainer[j]->sendShadowRealm(); //reduces enemy health till death
 				//Make player lose health here
+				player1.decHealth();
 			}
 		}
 		//Checks collision of player2 Ship and enemy ships
@@ -50,6 +51,7 @@ void Engine::updateCollisions()
 			{
 				enemyContainer[j]->sendShadowRealm(); //reduces enemy health till death
 				//Make player lose health here
+				player1.decHealth();
 			}
 		}
 

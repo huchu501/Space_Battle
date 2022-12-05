@@ -67,3 +67,9 @@ Sprite CreateBackground::getMenuBackground()
 	menuBackground.setPosition(0, 0);
 	return menuBackground;
 }
+
+void CreateBackground::resetBackground()
+{
+	i = 0;
+
+}
