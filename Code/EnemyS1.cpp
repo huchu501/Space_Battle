@@ -38,11 +38,6 @@ void EnemyS1::hit()
     {
         // dead, can update score here maybe
         sendShadowRealm();
-        for (int i = 0; i < 100; i++)
-        {
-            s1[i].stop();
-            s1[i].setPosition(5000, 5000);
-        }
 
     }
     // injured but not dead yet
@@ -64,6 +59,23 @@ void EnemyS1::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
     m_Sprite.setPosition(m_Position);
 
     //Update projectiles
+
+}
+
+Sprite EnemyS1::getProjSprite(int i)
+{
+    return s1[i].getSprite();
+}
+void EnemyS1::stopProjectile()
+{
+    for (int i = 0; i < 100; i++)
+    {
+        s1[i].stop();
+        s1[i].setPosition(2000, 3000);
+    }
+}
+void EnemyS1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock)
+{
     if (updateProjTime.asMilliseconds() > timeToShoot)
     {
         s1[clip].setOrigin(15, 15);
@@ -85,10 +97,8 @@ void EnemyS1::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
         }
 
     }
-
 }
-
-Sprite EnemyS1::getProjSprite(int i)
+FloatRect EnemyS1::getProjectilePosition(int i)
 {
-    return s1[i].getSprite();
+    return s1[i].getPosition();
 }

@@ -12,5 +12,8 @@ public:
 	virtual void hit() override;
 	virtual void update(float elapsedTime, Vector2f playerLocation, Clock imgclock) override;
 	virtual Sprite getProjSprite(int i) override;
+	virtual void stopProjectile() override;
+	virtual void updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock) override;
+	virtual FloatRect getProjectilePosition(int i) override;
 	EnemyB1();
 };

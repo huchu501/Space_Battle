@@ -32,11 +32,18 @@ void Engine::updateEnemies(float dtAsSeconds)
 				break;
 			case 2:
 				if (!enemyContainer[i]->getm_Dead())
+				{
 					enemyContainer[i]->update(dtAsSeconds, player1.getCenter(), bgClock);  //updates each enemy
+				}
+				enemyContainer[i]->updateProjectile(dtAsSeconds, player1.getCenter(), bgClock);
 				break;
 			case 3:
 				if (!enemyContainer[i]->getm_Dead())
+				{
 					enemyContainer[i]->update(dtAsSeconds, player2.getCenter(), bgClock);
+				}
+				enemyContainer[i]->updateProjectile(dtAsSeconds, player2.getCenter(), bgClock);
+				break;
 			}
 
 		}

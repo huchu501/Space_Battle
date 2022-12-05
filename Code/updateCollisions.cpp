@@ -32,21 +32,51 @@ void Engine::updateCollisions()
 				}
 			}
 		}
-		
 		//Checks collision of player1 Ship and enemy ships
-		for (int i = 0; i < player1.getProjectileSize(); i++)
+		for (int j = 0; j < enemyContainer.size(); j++)
 		{
-			for (int j = 0; j < enemyContainer.size(); j++)
+			checkCol = col.checkCollision(player1.getPosition(), enemyContainer[j]->getPosition());
+			if (checkCol)
 			{
-				checkCol = col.checkCollision(player1.getPosition(), enemyContainer[j]->getPosition());
-				if (checkCol)
+				enemyContainer[j]->sendShadowRealm(); //reduces enemy health till death
+				//Make player lose health here
+			}
+		}
+		//Checks collision of player2 Ship and enemy ships
+		for (int j = 0; j < enemyContainer.size(); j++)
+		{
+			checkCol = col.checkCollision(player2.getPosition(), enemyContainer[j]->getPosition());
+			if (checkCol)
+			{
+				enemyContainer[j]->sendShadowRealm(); //reduces enemy health till death
+				//Make player lose health here
+			}
+		}
+
+		//Checks collision of enemy projectiles and players
+		for (int i = 0; i < enemyContainer.size(); i++)
+		{
+			for (int j = 0; j < 100; j++)
+			{
+				if (enemyContainer[i]->getType() > 1)
 				{
-					enemyContainer[j]->sendShadowRealm(); //reduces health till death
-					//Make player lose health here
-					player1.decHealth(); //reduces health till death
+					checkCol = col.checkCollision(player1.getPosition(), enemyContainer[i]->getProjectilePosition(j));
+					if (checkCol)
+					{
+						//reduces player1 health till here
+						enemyContainer[i]->stopProjectile();
+					}
+				}
+				if (enemyContainer[i]->getType() > 1)
+				{
+					checkCol = col.checkCollision(player2.getPosition(), enemyContainer[i]->getProjectilePosition(j));
+					if (checkCol)
+					{
+						//reduces player2 health till here
+						enemyContainer[i]->stopProjectile();
+					}
 				}
 			}
 		}
 	}
-	
 }

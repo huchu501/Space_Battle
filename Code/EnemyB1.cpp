@@ -80,4 +80,15 @@ Sprite EnemyB1::getProjSprite(int i)
 {
     return emptySprite;
 }
+void EnemyB1::stopProjectile()
+{
 
+}
+void EnemyB1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock)
+{
+
+}
+FloatRect EnemyB1::getProjectilePosition(int i)
+{
+    return getPosition();
+}

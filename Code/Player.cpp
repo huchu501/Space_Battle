@@ -150,22 +150,11 @@ void Player::update(float elapsedTime, Clock imgclock)
 
 	if (m_SpacePressed && updateProjTime.asMilliseconds() > timeToShoot)
 	{
-		if(MaxClip < 100) //100
-		{
-			p1.push_back(new Projectile{"Graphics/projectile1.png"});
-			p1.back()->setOrigin(10, 24.5);
-			p1.back()->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
-			timeToShoot = updateProjTime.asMilliseconds() + clipSpeed;//timetoshoot dictates projectile speed
-			MaxClip++;
-		}
-		else
-		{
 			timeToShoot = updateProjTime.asMilliseconds() + clipSpeed;
 			p1[clip]->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
 			clip++;
 				if (clip > 99) //99
 					clip = 0;
-		}
 	}
 
 	for (int i = 0; i < p1.size(); i++)
