@@ -31,7 +31,7 @@ private:
 	Clock clock, bgClock;
 
 	// How long has the PLAYING state been active
-	Time dt, gameTimeTotal;
+	Time dt, gameTimeTotal, enemyTime;
 
 	// Create player1 and player2 objects 
 	Player1 player1;

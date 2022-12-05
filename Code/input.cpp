@@ -25,6 +25,8 @@ void Engine::input()
 				state = State::PLAYING;
 				// Reset the clock so there isn't a frame jump
 				clock.restart();
+				bgClock.restart();
+				spawnTime = 0;
 			}
 
 			//Start the game with num1

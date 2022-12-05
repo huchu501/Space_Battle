@@ -51,8 +51,6 @@ int Enemy::getType()
 void Enemy::resetEnemy()
 {
     timeToShoot = 0;
+    sendShadowRealm();
 }
-//void Enemy::stopProjectile(int i)
-//{
-//
-//}
+

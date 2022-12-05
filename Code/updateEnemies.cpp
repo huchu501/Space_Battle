@@ -2,10 +2,12 @@
 
 void Engine::updateEnemies(float dtAsSeconds)
 {
+
 	if (state == State::PLAYING)
 	{
+		enemyTime = bgClock.getElapsedTime();
 		//Spawns in an enemy based on spawnTime(seconds)
-		if (gameTimeTotal.asSeconds() > spawnTime)
+		if (enemyTime.asSeconds() > spawnTime)
 		{
 			enemySpawnPoint = rand() % 1890;
 			enemyContainer[enemyIterator]->spawn(enemySpawnPoint, -10);
