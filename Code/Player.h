@@ -49,6 +49,7 @@ protected:
 	// Speed in pixels per second
 	float m_Speed;
 
+	int clipSpeed = 300;
 	vector<Projectile*> p1;
 	int MaxClip = 0;
 	int clip = 0;

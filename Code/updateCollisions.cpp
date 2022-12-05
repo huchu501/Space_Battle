@@ -13,6 +13,8 @@ void Engine::updateCollisions()
 				if (checkCol)
 				{
 					enemyContainer[j]->hit(); //reduces health till death
+					if (enemyContainer[j]->getm_Dead())
+						score += 50;
 					player1.stopProjectile(i); //sends projectile off map
 				}
 			}
@@ -38,6 +40,19 @@ void Engine::updateCollisions()
 			if (checkColP1 || checkColP2)
 			{
 				player1.decHealth(); //reduces health till death
+			}
+		}
+	}
+	//Checks collision of player1 Ship and enemy ships
+	for (int i = 0; i < player1.getProjectileSize(); i++)
+	{
+		for (int j = 0; j < enemyContainer.size(); j++)
+		{
+			checkCol = col.checkCollision(player1.getPosition(), enemyContainer[j]->getPosition());
+			if (checkCol)
+			{
+				enemyContainer[j]->sendShadowRealm(); //reduces health till death
+				//Make player lose health here
 			}
 		}
 	}

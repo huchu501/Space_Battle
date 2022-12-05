@@ -14,6 +14,23 @@ Engine::Engine()
 
 	hudView.setSize(resolution);
 	hudView.reset(sf::FloatRect(0, 0, resolution.x, resolution.y));
+
+	//create container of enemies, will spawn later:
+	for (int i = 0; i < numOfEnemy; i++)
+	{
+		enemyType = rand() % 2;
+		enemySpawnPoint = rand() % 1890;
+		switch (enemyType)
+		{
+		case 0:
+			enemyContainer.push_back(new EnemyB1);
+			break;
+		case 1:
+			enemyContainer.push_back(new EnemyS1);
+			break;
+
+		}
+	}
 }
 /*------------------------------------------------*/
 /*                 MAIN GAME LOOP                 */

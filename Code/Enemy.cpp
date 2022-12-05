@@ -24,8 +24,7 @@ Sprite Enemy::getSprite()
     return m_Sprite;
 }
 
-void Enemy::update(float elapsedTime,
-    Vector2f playerLocation)
+void Enemy::update(float elapsedTime, Vector2f playerLocation, Clock imgClock)
 {
     float playerX = playerLocation.x;
     float playerY = playerLocation.y;
@@ -65,3 +64,12 @@ bool Enemy::getm_Dead()
 {
     return m_Dead;
 }
+Sprite Enemy::getProjSprite(int i)
+{
+    return emptySprite;
+}
+int Enemy::getType()
+{
+    return type;
+}
+
