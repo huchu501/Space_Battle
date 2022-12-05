@@ -1,8 +1,4 @@
 #include "Projectile.h"
-
-
-
-
 Projectile::Projectile(String tex)
 {
 	m_Sprite = Sprite((TextureHolder::GetTexture(tex)));

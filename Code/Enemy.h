@@ -55,6 +55,9 @@ public:
 
     void sendShadowRealm();
     virtual Sprite getProjSprite(int i) = 0;
+    virtual void stopProjectile() = 0;
+    virtual void updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock) = 0;
+    virtual FloatRect getProjectilePosition(int i) = 0;
     int getType();
 
 };

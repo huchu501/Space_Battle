@@ -60,6 +60,8 @@ private:
 	int enemyIterator = 0;
 	int enemyType; //random num for Bomber or shooter
 
+	Sprite explosion = Sprite(TextureHolder::GetTexture("graphics/explosion1.png"));
+
 	void input();
 	void update(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);

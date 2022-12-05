@@ -12,7 +12,12 @@ Player1::Player1()
 	m_Health = START_HEALTH;
 	m_MaxHealth = START_HEALTH;
 
-
+	for (int i = 0; i < 100; i++)  //create 100 projectiles
+	{
+		p1.push_back(new Projectile{ "Graphics/projectile1.png" });
+		p1.back()->setOrigin(10, 24.5);
+		p1.back()->shoot(m_Position.x, m_Position.y, m_Position.x, 0);
+	}
 }
 
 // Virtual function overriding Player.h pure virtual function spawn()

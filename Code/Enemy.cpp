@@ -26,32 +26,7 @@ Sprite Enemy::getSprite()
 
 void Enemy::update(float elapsedTime, Vector2f playerLocation, Clock imgClock)
 {
-    float playerX = playerLocation.x;
-    float playerY = playerLocation.y;
-    // Update the Enemy position variables
-    if (playerX > m_Position.x)
-    {
-        m_Position.x = m_Position.x +
-            m_Speed * elapsedTime;
-    }
-    if (playerY > m_Position.y)
-    {
-        m_Position.y = m_Position.y +
-            m_Speed * elapsedTime;
-    }
 
-    if (playerX < m_Position.x)
-    {
-        m_Position.x = m_Position.x -
-            m_Speed * elapsedTime;
-    }
-    if (playerY < m_Position.y)
-    {
-        m_Position.y = m_Position.y -
-            m_Speed * elapsedTime;
-    }
-    // Move the sprite
-    m_Sprite.setPosition(m_Position);
 }
 
 void Enemy::sendShadowRealm()
@@ -72,4 +47,7 @@ int Enemy::getType()
 {
     return type;
 }
-
+//void Enemy::stopProjectile(int i)
+//{
+//
+//}
