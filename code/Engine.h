@@ -10,6 +10,7 @@
 #include "Projectile.h"
 #include "Collision.h"
 #include "HealthBar.h"
+#include "Upgrades.h"
 #include <SFML/Audio.hpp>
 
 using namespace sf;
@@ -65,6 +66,10 @@ private:
 
 	Music mTheme;
 
+	// upgrade variables
+	Upgrades healthUp;
+	Upgrades speedUp;
+	Upgrades projUp;
 
 	void input();
 	void updatePlayers(float dtAsSeconds);

@@ -7,11 +7,13 @@ using namespace sf;
 class Upgrades
 {
 private:
-	const int WAIT_TIME = 30;
+	const int WAIT_TIME = 10;
 	const int LIVE_TIME = 5;
+	const int HEALTH_UP_WORTH = 1;
 
 	Sprite upgradeSprite;
 	int upgradeType; // 1 = Health, 2 = Speed, 3 = Projectile speed
+	int value;
 	// spawing & despawning
 	float secSinceSpawn;
 	float secSinceDespawn;
@@ -20,10 +22,10 @@ private:
 
 	IntRect upgradeSpace;
 	bool spawned;
-	
-
 public:
-	Upgrades(int type);
+	Upgrades();
+	// set what type of upgrade the object is
+	void setType(int type);
 	// set boundary space of the upgrades
 	void setBoundary(IntRect space);
 	// spawn position of the upgrade pickups

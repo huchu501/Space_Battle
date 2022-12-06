@@ -174,10 +174,10 @@ void Player::upgradeSpeed()
 	m_Speed += (START_SPEED * .2);
 }
 
-void Player::upgradeHealth()
+void Player::upgradeProjSpeed()
 {
-	// 20% max health upgrade
-	m_MaxHealth += (START_HEALTH * .2);
+	// 20% projectile speed upgrade
+	clipSpeed += (clipSpeed * .2);
 }
 
 void Player::increaseHealthLevel(int amount)

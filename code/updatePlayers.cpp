@@ -37,7 +37,10 @@ void Engine::updatePlayers(float dtAsSeconds)
 		healthBar.updateHealthBar(player1.getHealth());
 		// end the game when health is 0
 		if (healthBar.getHeartCount() == 0) { state = State::GAME_OVER; }
-
+		// upgrades
+		healthUp.spawnTime(dtAsSeconds);
+		speedUp.spawnTime(dtAsSeconds);
+		projUp.spawnTime(dtAsSeconds);
 		
 	}
 }

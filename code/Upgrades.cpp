@@ -1,10 +1,18 @@
 #include "Upgrades.h"
-Upgrades::Upgrades(int type)
+
+Upgrades::Upgrades() 
+{
+	secToLive = LIVE_TIME;
+	secToWait = WAIT_TIME;
+}
+
+void Upgrades::setType(int type)
 {
 	upgradeType = type;
 	if (upgradeType = 1)
 	{
 		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/H_UP"));
+		value = HEALTH_UP_WORTH;
 	}
 	else if (upgradeType = 2)
 	{
@@ -15,8 +23,6 @@ Upgrades::Upgrades(int type)
 		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/P_UP"));
 	}
 	upgradeSprite.setOrigin(15, 14);
-	secToLive = LIVE_TIME;
-	secToWait = WAIT_TIME;
 }
 
 void Upgrades::setBoundary(IntRect space)

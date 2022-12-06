@@ -11,6 +11,10 @@ void Engine::drawPLAYING()
 		// draw 2 players on background
 		window.draw(player1.getSprite());
 		window.draw(player2.getSprite());
+		// draw upgrades if spawned
+		if (healthUp.isSpawned()) { window.draw(healthUp.getSprite()); }
+		if (speedUp.isSpawned()) { window.draw(speedUp.getSprite()); }
+		if (projUp.isSpawned()) { window.draw(projUp.getSprite()); }
 
 		//draw projectiles for both players:
 		for (int i = 0; i < player1.getProjectileSize(); i++) 

@@ -116,7 +116,7 @@ public:
 	void upgradeSpeed();
 
 	// Give the player some health
-	void upgradeHealth();
+	void upgradeProjSpeed();
 
 	// Increase the maximum amount of health the player can have
 	void increaseHealthLevel(int amount);

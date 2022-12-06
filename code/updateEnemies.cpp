@@ -45,5 +45,6 @@ void Engine::updateEnemies(float dtAsSeconds)
 				break;
 			}
 		}
+
 	}
 }
