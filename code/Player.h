@@ -55,6 +55,12 @@ protected:
 	int clip = 0;
 	float timeToShoot = 0;
 
+	//---------------------UPGRADES----------------------
+	Sprite healthUp;
+	Sprite speedUp;
+	Sprite projectileUp;
+
+
 public:
 	// this is the abstract base class, so it won't have a contructor.
 

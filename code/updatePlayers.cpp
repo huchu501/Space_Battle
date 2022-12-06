@@ -40,7 +40,5 @@ void Engine::updatePlayers(float dtAsSeconds)
 
 		
 	}
-	// update HUD
-
 }
 
