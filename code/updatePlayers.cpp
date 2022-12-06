@@ -27,9 +27,11 @@ void Engine::updatePlayers(float dtAsSeconds)
 	if (state == State::PLAYING)
 	{
 		// update the two players
-		//ssScore << "Score:" << score;
-		//ssScore.str();
-		//hud.setScoreText(ssScore.str());
+		stringstream ssScore;
+		score++;
+		ssScore << "Score:" << score;
+		ssScore.str();
+		hud.setScoreText(ssScore.str());
 		player1.update(dtAsSeconds, bgClock);
 		player2.update(dtAsSeconds, bgClock);
 		// update healthBar
@@ -39,6 +41,15 @@ void Engine::updatePlayers(float dtAsSeconds)
 
 		
 	}
+	// update HUD
+	float msSinceLastHUDUpdate = 0;
+	float msHUDFrameInterval = 1000;
+	msSinceLastHUDUpdate++; // increment the number of frames since last hud calculation
+	if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
+	{  // update score text
 
+
+		msSinceLastHUDUpdate = 0;
+	}
 }
 
