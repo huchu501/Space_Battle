@@ -9,18 +9,18 @@ Upgrades::Upgrades()
 void Upgrades::setType(int type)
 {
 	upgradeType = type;
-	if (upgradeType = 1)
+	if (upgradeType == 1)
 	{
-		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/H_UP"));
+		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/H_UP.png"));
 		value = HEALTH_UP_WORTH;
 	}
-	else if (upgradeType = 2)
+	else if (upgradeType == 2)
 	{
-		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/S_UP"));
+		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/S_UP.png"));
 	}
-	else if (upgradeType = 3)
+	else if (upgradeType == 3)
 	{
-		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/P_UP"));
+		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/P_UP.png"));
 	}
 	upgradeSprite.setOrigin(15, 14);
 }
@@ -93,4 +93,3 @@ bool Upgrades::isSpawned()
 {
 	return spawned;
 }
-

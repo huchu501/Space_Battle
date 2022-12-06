@@ -36,6 +36,7 @@ void Engine::input()
 			// Reset the game and start over again
 			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::GAME_OVER) // Display GAMEOVER and return to MENU
 			{
+				score = 0;
 				state = State::MENU;
 			}
 		}

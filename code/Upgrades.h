@@ -7,7 +7,7 @@ using namespace sf;
 class Upgrades
 {
 private:
-	const int WAIT_TIME = 10;
+	const int WAIT_TIME = 1;
 	const int LIVE_TIME = 5;
 	const int HEALTH_UP_WORTH = 1;
 
@@ -15,10 +15,10 @@ private:
 	int upgradeType; // 1 = Health, 2 = Speed, 3 = Projectile speed
 	int value;
 	// spawing & despawning
-	float secSinceSpawn;
-	float secSinceDespawn;
-	float secToLive;
-	float secToWait;
+	float secSinceSpawn = 0;
+	float secSinceDespawn = 0;
+	float secToLive = 0;
+	float secToWait = 0;
 
 	IntRect upgradeSpace;
 	bool spawned;
