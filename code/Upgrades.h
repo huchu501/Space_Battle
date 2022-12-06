@@ -21,13 +21,12 @@ private:
 	float secToWait;
 
 	IntRect upgradeSpace;
-	bool spawned;
+	bool spawned = false;
 public:
 	Upgrades();
 	// set what type of upgrade the object is
 	void setType(int type);
 	// set boundary space of the upgrades
-	void setBoundary(IntRect space);
 	// spawn position of the upgrade pickups
 	void spawnPos();
 	// spawn duration of the upgrade pickups
@@ -36,4 +35,5 @@ public:
 	FloatRect getPosition();
 	Sprite getSprite();
 	bool isSpawned();
+	void sendShadowRealm();
 };

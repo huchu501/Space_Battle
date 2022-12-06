@@ -28,6 +28,9 @@ void Engine::input()
 				bgClock.restart();
 				spawnTime = 0;
 				background.resetBackground();
+				healthUp.sendShadowRealm();
+				speedUp.sendShadowRealm();
+				projUp.sendShadowRealm();
 				for (int i = 0; i < enemyContainer.size(); i++)
 				{
 					enemyContainer[i]->resetEnemy();

@@ -9,42 +9,32 @@ Upgrades::Upgrades()
 void Upgrades::setType(int type)
 {
 	upgradeType = type;
-	if (upgradeType = 1)
+	if (upgradeType == 1)
 	{
-		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/H_UP"));
+		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/H_UP.png"));
 		value = HEALTH_UP_WORTH;
+		upgradeSprite.setOrigin(30, 26);
 	}
-	else if (upgradeType = 2)
+	else if (upgradeType == 2)
 	{
-		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/S_UP"));
+		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/S_UP.png"));
+		upgradeSprite.setOrigin(30.5, 27.5);
 	}
-	else if (upgradeType = 3)
+	else if (upgradeType == 3)
 	{
-		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/upgrade/P_UP"));
+		upgradeSprite = Sprite(TextureHolder::GetTexture("Graphics/P_UP.png"));
+		upgradeSprite.setOrigin(17, 17);
 	}
-	upgradeSprite.setOrigin(15, 14);
-}
-
-void Upgrades::setBoundary(IntRect space)
-{
-	upgradeSpace.left = space.left + 50;
-	upgradeSpace.width = space.width - 50;
-	upgradeSpace.top = space.top + 50;
-	upgradeSpace.height = space.height - 50;
-
-	spawnPos();
 }
 
 void Upgrades::spawnPos()
 {
-	srand((int)time(0) / upgradeType);
-	int x = (rand() % upgradeSpace.width);
-	srand((int)time(0) * upgradeType);
-	int y = (rand() % upgradeSpace.height);
 
-	secSinceSpawn = 0.0;
+	int x1 = rand() % 1801 + 100;
+	int y1 = rand() % 701 + 300;
 	spawned = true;
-	upgradeSprite.setPosition(x, y);
+	upgradeSprite.setPosition(x1, y1);
+
 }
 
 void Upgrades::spawnTime(float elaspedTime)
@@ -70,6 +60,8 @@ void Upgrades::spawnTime(float elaspedTime)
 		spawned = true;
 		secSinceSpawn = 0;
 	}
+
+	float timePlus30 = elaspedTime + 30;
 }
 
 int Upgrades::pickup()
@@ -92,5 +84,9 @@ Sprite Upgrades::getSprite()
 bool Upgrades::isSpawned()
 {
 	return spawned;
+}
+void Upgrades::sendShadowRealm()
+{
+	upgradeSprite.setPosition(4000, 6000);
 }
 
