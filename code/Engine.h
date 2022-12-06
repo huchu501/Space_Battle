@@ -5,7 +5,6 @@
 #include "Player2.h"
 #include "TextureHolder.h"
 #include "EnemyB1.h"
-//#include "EnemyB2.h"
 #include "EnemyS1.h"
 #include "Hud.h"
 #include "Projectile.h"

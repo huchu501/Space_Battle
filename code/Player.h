@@ -9,7 +9,7 @@ class Player
 // protected, so that the subclasses can use all these variables
 protected:
 	const float START_SPEED = 200;
-	const float START_HEALTH = 6;
+	const float START_HEALTH = 10;
 
 	// position of the player on screen
 	Vector2f m_Position;
@@ -38,7 +38,7 @@ protected:
 	bool m_LeftPressed;
 	bool m_RightPressed;
 	bool m_SpacePressed;
-	// health from 0 to 6
+	// health from 0 to 10
 	int m_Health;
 	// What is the maximum health the player can have
 	int m_MaxHealth;
@@ -54,12 +54,6 @@ protected:
 	int MaxClip = 0;
 	int clip = 0;
 	float timeToShoot = 0;
-
-	//---------------------UPGRADES----------------------
-	Sprite healthUp;
-	Sprite speedUp;
-	Sprite projectileUp;
-
 
 public:
 	// this is the abstract base class, so it won't have a contructor.
