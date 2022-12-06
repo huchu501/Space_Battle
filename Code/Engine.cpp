@@ -8,8 +8,7 @@ Engine::Engine()
 	resolution.y = VideoMode::getDesktopMode().height;
 
 	window.create(VideoMode(resolution.x, resolution.y), "Space Battle", Style::Fullscreen);
-
-	mainView.setSize(resolution);
+	//mainView.setSize(resolution);
 	mainView.reset(sf::FloatRect(0, 0, resolution.x, resolution.y));
 
 	hudView.setSize(resolution);
