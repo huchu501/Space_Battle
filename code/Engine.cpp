@@ -9,7 +9,12 @@ Engine::Engine()
 	window.create(VideoMode(resolution.x, resolution.y), "Space Battle", Style::Fullscreen);
 	mainView.reset(sf::FloatRect(0, 0, 1920, 1080));
 	hudView.reset(sf::FloatRect(0, 0, 1920, 1080));
-
+	if (!mTheme.openFromFile("bgMusic.wav"))
+	{
+	}
+	mTheme.setVolume(60);
+	mTheme.play();
+	mTheme.setLoop(true);
 	//create container of enemies, will spawn later:
 	for (int i = 0; i < numOfEnemy; i++)
 	{
@@ -30,8 +35,10 @@ void Engine::run()
 	//restart clocks before main game loop:
 	clock.restart();
 	bgClock.restart();
+
 	while (window.isOpen())
 	{
+
 		// update time
 		Time dt = clock.restart();
 		// keep on updating the total game time
