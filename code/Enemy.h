@@ -9,7 +9,7 @@ class Enemy
 protected:
     // How fast is each Enemy type?
     const float ENEMY_SPEED = 150;
-    
+
     // How tough is each Enemy type
     const float ENEMY_HEALTH = 500;
     // Make each Enemy vary its speed slightly
