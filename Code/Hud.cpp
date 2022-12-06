@@ -9,7 +9,7 @@ Hud::Hud()
 	menuText.setCharacterSize(150);
 	menuText.setFillColor(Color::White);
 	menuText.setPosition(230, 330);
-	menuText.setString("SPACE BATTLE");
+	menuText.setString("SPACE BATTLES");
 	menuSubtext.setFont(font);
 	menuSubtext.setCharacterSize(50);
 	menuSubtext.setFillColor(Color::White);
