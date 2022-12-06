@@ -11,14 +11,17 @@ private:
 	Sprite menuBackground;
 	Texture textureMenu;
 	Uint8 t, r, g, b;
-	Time updateImgTime;
+	Time updateImgTime, totalTime;
 	float i;
 	bool toggleT = true;
 	int setRGB;
+	int bgImage = 0;
+	vector<Sprite> vSprites;
 
 public:
 	CreateBackground();
-	Sprite getBackground(Clock);
+	Sprite getBackground(Clock, Time);
 	Sprite getMenuBackground();
 	void resetBackground();
+	void changeImage(Time gameTime);
 };

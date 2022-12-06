@@ -57,7 +57,7 @@ private:
 	bool checkCol, checkColP1, checkColP2;
 
 	float spawnTime = 0;
-	float rateOfSpawn = 2.5; //Higher the number, slower the enemies spawn
+	float rateOfSpawn = 10; //Higher the number, slower the enemies spawn
 	int enemySpawnPoint = 0; //Random num for spawn point on x axis
 	int numOfEnemy = 50;  //Create 50 enemies on stack
 	int enemyIterator = 0;

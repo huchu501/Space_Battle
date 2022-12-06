@@ -28,7 +28,7 @@ void EnemyS1::spawn(float startX, float startY)
 void EnemyS1::hit()
 {
     m_Health--;
-    if (m_Health < 0)
+    if (m_Health <= 0)
     {
         // dead, send to coordinates 5000,5000
         sendShadowRealm();

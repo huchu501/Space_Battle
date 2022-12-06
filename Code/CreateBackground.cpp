@@ -10,9 +10,13 @@ CreateBackground::CreateBackground()
 	b = 255;
 	i = 0;
 	setRGB = 1;
+	vSprites.push_back(Sprite(TextureHolder::GetTexture("Graphics/SpaceBackground.png")));
+	vSprites.push_back(Sprite(TextureHolder::GetTexture("Graphics/SpaceBackground2.png")));
+	vSprites.push_back(Sprite(TextureHolder::GetTexture("Graphics/SpaceBackground3.png")));
+	vSprites.push_back(Sprite(TextureHolder::GetTexture("Graphics/SpaceBackground4.png")));
 }
 
-Sprite CreateBackground::getBackground(Clock imgClock)
+Sprite CreateBackground::getBackground(Clock imgClock, Time gameTime)
 {
 	updateImgTime = imgClock.getElapsedTime();
 	if (updateImgTime.asMilliseconds() >= i)
@@ -28,6 +32,7 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 				g = 255;
 				b = 255;
 				setRGB = 1;
+				changeImage(gameTime);
 			}
 			else if (setRGB == 1)
 			{
@@ -43,6 +48,7 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 				b = 255;
 				setRGB = 0;
 			}
+
 		}
 		
 		if (toggleT)
@@ -66,4 +72,23 @@ Sprite CreateBackground::getMenuBackground()
 	return menuBackground;
 }
 
-void CreateBackground::resetBackground() { i = 0; }
+void CreateBackground::resetBackground() 
+{ 
+	i = 0; 
+	bgImage = 0;
+	background = vSprites[0];
+	setRGB = 0;
+	t = 255;
+}
+
+void CreateBackground::changeImage(Time gameTime)
+{
+	if (gameTime.asSeconds() > totalTime.asSeconds() + 5)
+	{
+		background = vSprites[bgImage];
+		totalTime = gameTime;
+		bgImage++;
+		if (bgImage > 3)
+			bgImage = 0;
+	}
+}

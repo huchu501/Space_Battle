@@ -14,7 +14,7 @@ void Engine::input()
 			else if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PAUSED) // Restart Timers when paused ends 
 			{
 				state = State::PLAYING;
-				spawnTime = 0;
+				spawnTime = 3;
 				clock.restart();
 				bgClock.restart();
 				background.resetBackground();

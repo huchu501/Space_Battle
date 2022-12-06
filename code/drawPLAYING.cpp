@@ -7,7 +7,7 @@ void Engine::drawPLAYING()
 		//window.clear();
 		// DRAW ON MAIN VIEW
 		window.setView(mainView);
-		window.draw(background.getBackground(bgClock));
+		window.draw(background.getBackground(bgClock, gameTimeTotal));
 		// draw 2 players on background
 		window.draw(player1.getSprite());
 		window.draw(player2.getSprite());
