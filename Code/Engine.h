@@ -62,7 +62,6 @@ private:
 	int numOfEnemy = 50;  //Create 50 enemies on stack
 	int enemyIterator = 0;
 	int enemyType; //random num for Bomber or shooter
-
 	void input();
 	void updatePlayers(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);

@@ -39,7 +39,7 @@ void Engine::drawPLAYING()
 		// DRAW ON HUD VIEW
 		//window.setView(hudView); DONT NEED THIS
 		// hud elements
-		//window.draw(hud.getScoreText()); //UNCOMMENT THIS TO SHOW SCORE
+		window.draw(hud.getScoreText()); //UNCOMMENT THIS TO SHOW SCORE
 		window.draw(healthBar.getHealthBar());
 	}
 	//window.display();
