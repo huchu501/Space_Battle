@@ -11,6 +11,7 @@
 #include "Projectile.h"
 #include "Collision.h"
 #include "HealthBar.h"
+#include <SFML/Audio.hpp>
 
 using namespace sf;
 
@@ -62,6 +63,10 @@ private:
 	int numOfEnemy = 50;  //Create 50 enemies on stack
 	int enemyIterator = 0;
 	int enemyType; //random num for Bomber or shooter
+
+	Music mTheme;
+
+
 	void input();
 	void updatePlayers(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);

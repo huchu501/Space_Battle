@@ -59,5 +59,5 @@ void Projectile::update(float elapsedTime)
 void Projectile::stop()
 {
 	m_InFlight = false;
-	m_Sprite.setPosition(5000, 5000);
+	m_Sprite.setPosition(4000, 4000);
 }
