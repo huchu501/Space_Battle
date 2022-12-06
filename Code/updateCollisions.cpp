@@ -67,6 +67,7 @@ void Engine::updateCollisions()
 					{
 						//reduces player1 health till here
 						enemyContainer[i]->stopProjectile();
+						player1.decHealth();
 					}
 				}
 				if (enemyContainer[i]->getType() > 1)
@@ -76,6 +77,7 @@ void Engine::updateCollisions()
 					{
 						//reduces player2 health till here
 						enemyContainer[i]->stopProjectile();
+						player1.decHealth();
 					}
 				}
 			}

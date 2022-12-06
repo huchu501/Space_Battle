@@ -47,8 +47,8 @@ void Engine::update(float dtAsSeconds)
 	if (msSinceLastHUDUpdate > msHUDFrameInterval)  // update HUD every msHUDFrameInterval frames
 	{  // update score text
 		stringstream ssScore;
-		ssScore << "Score:" << 55;
-		hud.setScoreText(ssScore.str());
+		ssScore << "Score:" << score;
+		hud.setScoreText("Score:");
 
 		msSinceLastHUDUpdate = 0;
 	}

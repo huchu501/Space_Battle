@@ -31,7 +31,7 @@ Hud::Hud()
 	scoreText.setFont(font);
 	scoreText.setCharacterSize(55);
 	scoreText.setFillColor(Color::White);
-	scoreText.setPosition(500, 0);	
+	scoreText.setPosition(300, 100);	
 }
 // getters
 Text Hud::getMenuText()

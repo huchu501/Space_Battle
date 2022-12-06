@@ -15,7 +15,6 @@ void Engine::draw()
 		// DRAW ON MAIN VIEW
 		window.setView(mainView);
 		window.draw(background.getBackground(bgClock));
-		window.draw(hud.getScoreText());
 		// draw 2 players on background
 		window.draw(player1.getSprite());
 		window.draw(player2.getSprite());
@@ -49,6 +48,7 @@ void Engine::draw()
 		// hud elements
 		window.draw(hud.getScoreText());
 		window.draw(healthBar.getHealthBar());
+
 	}
 	if (state == State::PAUSED)
 	{
