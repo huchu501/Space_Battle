@@ -9,9 +9,10 @@ Engine::Engine()
 	window.create(VideoMode(resolution.x, resolution.y), "Space Battle", Style::Fullscreen);
 	mainView.reset(sf::FloatRect(0, 0, 1920, 1080));
 	hudView.reset(sf::FloatRect(0, 0, 1920, 1080));
-	if (!mTheme.openFromFile("nightrun.wav"))
+	if (!mTheme.openFromFile("bgMusic.wav"))
 	{
 	}
+	mTheme.setVolume(60);
 	mTheme.play();
 	mTheme.setLoop(true);
 	//create container of enemies, will spawn later:
