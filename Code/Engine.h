@@ -63,6 +63,8 @@ private:
 	int enemyIterator = 0;
 	int enemyType; //random num for Bomber or shooter
 
+	//stringstream ssScore;
+
 	void input();
 	void updatePlayers(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);

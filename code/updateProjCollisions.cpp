@@ -14,8 +14,8 @@ void Engine::updateProjCollisions()
 				{
 					enemyContainer[j]->hit(); //reduces health till death
 					if (enemyContainer[j]->getm_Dead())
-						score += 50;
 					player1.stopProjectile(i); //sends projectile off map
+					score += 5;
 				}
 			}
 		}
@@ -29,6 +29,7 @@ void Engine::updateProjCollisions()
 				{
 					enemyContainer[j]->hit(); //reduces health till death
 					player2.stopProjectile(i); //sends projectile off map
+					score += 5;
 				}
 			}
 		}
