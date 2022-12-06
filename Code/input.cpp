@@ -7,36 +7,24 @@ void Engine::input()
 	{
 		if (event.type == Event::KeyPressed)
 		{
-			// press escape to quit the game
-			if (Keyboard::isKeyPressed(Keyboard::Escape))
-			{
-				window.close();
-			}
+			if (Keyboard::isKeyPressed(Keyboard::Escape)) { window.close(); }  // press escape to quit the game
 
-			// Pause a game while playing
-			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PLAYING)
-			{
-				state = State::PAUSED;
-			}
+			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PLAYING) { state = State::PAUSED; } // Pause a game while playing
 
-			// Restart while paused
-			else if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PAUSED)
+			else if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::PAUSED) // Restart Timers when paused ends 
 			{
 				state = State::PLAYING;
-				// Reset the clock so there isn't a frame jump
+				spawnTime = 0;
 				clock.restart();
 				bgClock.restart();
 				background.resetBackground();
-				spawnTime = 0;
 				player1.resetTimeToShoot();
 				player2.resetTimeToShoot();
 			}
-
-			//Start the game with num1
-			if (Keyboard::isKeyPressed(Keyboard::Num1) && state == State::MENU)
+		
+			if (Keyboard::isKeyPressed(Keyboard::Num1) && state == State::MENU) //Start the game with num1 from MENU, restart timers
 			{
 				state = State::PLAYING;
-				//RESTART EVERYTHING FOR NEW GAME:
 				bgClock.restart();
 				spawnTime = 0;
 				background.resetBackground();
@@ -45,14 +33,14 @@ void Engine::input()
 					enemyContainer[i]->resetEnemy();
 				}
 			}
-
 			// Reset the game and start over again
-			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::GAME_OVER)
+			if (Keyboard::isKeyPressed(Keyboard::Enter) && state == State::GAME_OVER) // Display GAMEOVER and return to MENU
 			{
 				state = State::MENU;
 			}
 		}
+		//PLAYER INPUTS
 		player1.handleInput();
 		player2.handleInput();
-	} // END while event polling
+	} 
 }

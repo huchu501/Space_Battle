@@ -5,7 +5,7 @@ class Player2 : public Player
 {
 public:
 	// player 2 constructor
-	Player2::Player2();
+	Player2();
 
 	// override spawn function for player1
 	virtual void spawn(IntRect space, Vector2f resolution, int tileSize) override;

@@ -14,8 +14,8 @@ public:
 	virtual void stopProjectile() override;
 	virtual void updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock) override;
 	virtual FloatRect getProjectilePosition(int i) override;
-	EnemyS1();
 
+	EnemyS1();
 
 private:
 	int clip = 0;

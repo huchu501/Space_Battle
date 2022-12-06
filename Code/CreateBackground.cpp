@@ -2,9 +2,7 @@
 
 CreateBackground::CreateBackground()
 {
-	//textureBackground.loadFromFile("graphics/SpaceBackground.png");
-	background = Sprite(TextureHolder::GetTexture("graphics/SpaceBackground.png"));
-	//background.setTexture(textureBackground);
+	background = Sprite(TextureHolder::GetTexture("Graphics/SpaceBackground.png"));
 	background.setColor(Color::Transparent);
 	t = 255;
 	r = 255;
@@ -62,14 +60,10 @@ Sprite CreateBackground::getBackground(Clock imgClock)
 // background for menu screen
 Sprite CreateBackground::getMenuBackground()
 {
-	textureMenu = TextureHolder::GetTexture("graphics/SpaceBackground.png");
+	textureMenu = TextureHolder::GetTexture("Graphics/SpaceBackground.png");
 	menuBackground.setTexture(textureMenu);
 	menuBackground.setPosition(0, 0);
 	return menuBackground;
 }
 
-void CreateBackground::resetBackground()
-{
-	i = 0;
-
-}
+void CreateBackground::resetBackground() { i = 0; }

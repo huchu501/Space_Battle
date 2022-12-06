@@ -63,13 +63,13 @@ private:
 	int enemyIterator = 0;
 	int enemyType; //random num for Bomber or shooter
 
-	Sprite explosion = Sprite(TextureHolder::GetTexture("graphics/explosion1.png"));
-
 	void input();
-	void update(float dtAsSeconds);
+	void updatePlayers(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);
-	void updateCollisions();
-	void draw();
+	void updateProjCollisions();
+	void updateShipCollisions();
+	void drawPLAYING();
+	void drawELSE();
 
 public:
 	Engine(); //constructor initializes any variables needed

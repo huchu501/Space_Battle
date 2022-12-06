@@ -4,48 +4,20 @@
 #include <cmath>
 using namespace std;
 
-void Enemy::spawn(float startX, float startY)
-{
-    //Make this virtual
-}
+FloatRect Enemy::getPosition() { return m_Sprite.getGlobalBounds(); }
 
-void Enemy::hit()
-{
-    //Make this virtual
-}
+Sprite Enemy::getSprite() { return m_Sprite; }
 
+bool Enemy::getm_Dead() { return m_Dead; }
 
-FloatRect Enemy::getPosition()
-{
-    return m_Sprite.getGlobalBounds();
-}
-Sprite Enemy::getSprite()
-{
-    return m_Sprite;
-}
+Sprite Enemy::getProjSprite(int i) { return emptySprite; }
 
-void Enemy::update(float elapsedTime, Vector2f playerLocation, Clock imgClock)
-{
-
-}
+int Enemy::getType() { return type; }
 
 void Enemy::sendShadowRealm()
 {
     m_Dead = true;
     m_Sprite.setPosition(5000,5000);
-}
-
-bool Enemy::getm_Dead()
-{
-    return m_Dead;
-}
-Sprite Enemy::getProjSprite(int i)
-{
-    return emptySprite;
-}
-int Enemy::getType()
-{
-    return type;
 }
 
 void Enemy::resetEnemy()
@@ -55,8 +27,5 @@ void Enemy::resetEnemy()
     stopProjectile();
     gameRestart = true;
 }
-void Enemy::stopProjectile()
-{
 
-}
 

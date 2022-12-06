@@ -6,26 +6,15 @@ Projectile::Projectile(String tex)
 	m_Speed = START_SPEED;
 }
 
-void Projectile::stop()
-{
-	m_InFlight = false;
-	m_Sprite.setPosition(2000, 2000);
-}
+bool Projectile::isInFlight() { return m_InFlight; }
 
-bool Projectile::isInFlight()
-{
-	return m_InFlight;
-}
+FloatRect Projectile::getPosition() { return m_Sprite.getGlobalBounds(); }
 
-FloatRect Projectile::getPosition()
-{
-	return m_Sprite.getGlobalBounds();
-}
+Sprite Projectile::getSprite() { return m_Sprite; }
 
-Sprite Projectile::getSprite()
-{
-	return m_Sprite;
-}
+void Projectile::setPosition(float x, float y) { m_Sprite.setPosition(x, y); }
+
+void Projectile::setOrigin(float x, float y) { m_Sprite.setOrigin(x, y); }
 
 void Projectile::shoot(float startX, float startY, float xTarget, float yTarget)
 {
@@ -34,14 +23,11 @@ void Projectile::shoot(float startX, float startY, float xTarget, float yTarget)
 	m_Position.y = startY;
 
 	float gradient = (startX - xTarget) / (startY - yTarget);
-
 	if (gradient < 0)
 	{
 		gradient *= -1;
 	}
-
 	float ratioXY = m_Speed / (1 + gradient);
-
 	m_ProjectileDistanceY = ratioXY;
 	m_ProjectileDistanceX = ratioXY * gradient;
 
@@ -57,7 +43,6 @@ void Projectile::shoot(float startX, float startY, float xTarget, float yTarget)
 
 	m_Sprite.setPosition(m_Position);
 }
-
 void Projectile::update(float elapsedTime)
 {
 	// Update the bullet position variables
@@ -70,14 +55,9 @@ void Projectile::update(float elapsedTime)
 	{
 		stop();
 	}
-
 }
-
-void Projectile::setPosition(float x, float y)
+void Projectile::stop()
 {
-	m_Sprite.setPosition(x, y);
-}
-void Projectile::setOrigin(float x, float y)
-{
-
+	m_InFlight = false;
+	m_Sprite.setPosition(5000, 5000);
 }

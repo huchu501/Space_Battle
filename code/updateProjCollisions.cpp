@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-void Engine::updateCollisions()
+void Engine::updateProjCollisions()
 {
 	if (state == State::PLAYING)
 	{
@@ -32,33 +32,10 @@ void Engine::updateCollisions()
 				}
 			}
 		}
-		//Checks collision of player1 Ship and enemy ships
-		for (int j = 0; j < enemyContainer.size(); j++)
-		{
-			checkCol = col.checkCollision(player1.getPosition(), enemyContainer[j]->getPosition());
-			if (checkCol)
-			{
-				enemyContainer[j]->sendShadowRealm(); //reduces enemy health till death
-				//Make player lose health here
-				player1.decHealth();
-			}
-		}
-		//Checks collision of player2 Ship and enemy ships
-		for (int j = 0; j < enemyContainer.size(); j++)
-		{
-			checkCol = col.checkCollision(player2.getPosition(), enemyContainer[j]->getPosition());
-			if (checkCol)
-			{
-				enemyContainer[j]->sendShadowRealm(); //reduces enemy health till death
-				//Make player lose health here
-				player1.decHealth();
-			}
-		}
-
 		//Checks collision of enemy projectiles and players
 		for (int i = 0; i < enemyContainer.size(); i++)
 		{
-			for (int j = 0; j < 100; j++)
+			for (int j = 0; j < 20; j++)
 			{
 				if (enemyContainer[i]->getType() > 1)
 				{

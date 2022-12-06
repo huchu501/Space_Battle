@@ -1,17 +1,10 @@
 #include "Engine.h"
 
-void Engine::draw()
+void Engine::drawPLAYING()
 {
-	window.clear();
-	if (state == State::MENU)
-	{
-		window.setView(hudView);
-		window.draw(background.getMenuBackground());
-		window.draw(hud.getMenuText());
-		window.draw(hud.getMenuSubtext());
-	}
 	if (state == State::PLAYING)
 	{
+		//window.clear();
 		// DRAW ON MAIN VIEW
 		window.setView(mainView);
 		window.draw(background.getBackground(bgClock));
@@ -36,7 +29,7 @@ void Engine::draw()
 			//If shooter, draw projectiles:
 			if (enemyContainer[i]->getType() > 1)
 			{
-				for (int j = 0; j < 100; j++)
+				for (int j = 0; j < 20; j++)
 				{
 					window.draw(enemyContainer[i]->getProjSprite(j));
 				}
@@ -49,17 +42,5 @@ void Engine::draw()
 		//window.draw(hud.getScoreText()); //UNCOMMENT THIS TO SHOW SCORE
 		window.draw(healthBar.getHealthBar());
 	}
-	if (state == State::PAUSED)
-	{
-		window.setView(hudView);
-		window.draw(hud.getPausedText());
-	}
-	if (state == State::GAME_OVER)
-	{
-		window.setView(hudView);
-		window.draw(background.getMenuBackground());
-		window.draw(hud.getGameOverText());
-	}
-	window.display();
-
+	//window.display();
 }

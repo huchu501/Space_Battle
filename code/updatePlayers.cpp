@@ -1,8 +1,6 @@
 #include "Engine.h"
-
-
 //feed engine seconds
-void Engine::update(float dtAsSeconds)
+void Engine::updatePlayers(float dtAsSeconds)
 {
 	// background boundaries
 	space.height = 1030;
@@ -14,7 +12,7 @@ void Engine::update(float dtAsSeconds)
 
 	if (state == State::MENU)
 	{
-		// spawn the two players at its spawn location
+		// spawn the two players at its spawn location, RESET all player stuff
 		player1.spawn(space, resolution, tileSize);
 		player2.spawn(space, resolution, tileSize);
 		player1.resetPlayerStats();
@@ -43,13 +41,6 @@ void Engine::update(float dtAsSeconds)
 
 		
 	}
-	
-	if (state == State::GAME_OVER)
-	{
-		bgClock.restart();
-
-	}
-
 	// update HUD
 	float msSinceLastHUDUpdate = 0;
 	float msHUDFrameInterval = 1000;
