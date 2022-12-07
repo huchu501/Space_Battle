@@ -55,6 +55,10 @@ protected:
 	int clip = 0;
 	float timeToShoot = 0;
 
+	float upTime;
+
+	Time upTime1, upTime2;
+
 public:
 	// this is the abstract base class, so it won't have a contructor.
 
@@ -136,6 +140,9 @@ public:
 
 	void resetTimeToShoot();
 
+	void upgradeTime(Clock upClock);
+
+	void updateUpgrade(Clock upClock);
 };
 
 

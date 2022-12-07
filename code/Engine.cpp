@@ -11,11 +11,8 @@ Engine::Engine()
 	hudView.reset(sf::FloatRect(0, 0, 1920, 1080));
 	// upgrades
 	healthUp.setType(1);
-	healthUp.setBoundary(space);
 	speedUp.setType(2);
-	speedUp.setBoundary(space);
 	projUp.setType(3);
-	projUp.setBoundary(space);
 
 
 	if (!mTheme.openFromFile("bgMusic.wav"))

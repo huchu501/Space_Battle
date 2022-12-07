@@ -22,6 +22,8 @@ void Engine::updatePlayers(float dtAsSeconds)
 			player1.stopProjectile(i);
 			player2.stopProjectile(i);
 		}
+		upClock.restart();
+		upTotal = 0;
 	}
 	
 	if (state == State::PLAYING)
@@ -38,10 +40,20 @@ void Engine::updatePlayers(float dtAsSeconds)
 		// end the game when health is 0
 		if (healthBar.getHeartCount() == 0) { state = State::GAME_OVER; }
 		// upgrades
-		healthUp.spawnTime(dtAsSeconds);
-		speedUp.spawnTime(dtAsSeconds);
-		projUp.spawnTime(dtAsSeconds);
-		
+		player1.updateUpgrade(upClock);
+		player2.updateUpgrade(upClock);
+		upTime = upClock.getElapsedTime();
+		if (upTime.asSeconds() > upTotal)
+		{
+			int num = rand() % 5;
+			if (num == 0 || num == 1)
+				speedUp.spawnPos();
+			else if (num == 2 || num ==3)
+				projUp.spawnPos();
+			else if (num == 4)
+				healthUp.spawnPos();
+			upTotal += 15;
+		}
 	}
 }
 

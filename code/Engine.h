@@ -29,10 +29,10 @@ private:
 	View mainView, hudView;
 
 	// Here is our clock for timing everything
-	Clock clock, bgClock;
+	Clock clock, bgClock, upClock;
 
 	// How long has the PLAYING state been active
-	Time dt, gameTimeTotal, enemyTime;
+	Time dt, gameTimeTotal, enemyTime, upTime;
 
 	// Create player1 and player2 objects 
 	Player1 player1;
@@ -58,12 +58,14 @@ private:
 	bool checkCol, checkColP1, checkColP2;
 
 	float spawnTime = 0;
-	float rateOfSpawn = 10; //Higher the number, slower the enemies spawn
+	float rateOfSpawn = 5; //Higher the number, slower the enemies spawn
 	int enemySpawnPoint = 0; //Random num for spawn point on x axis
 	int numOfEnemy = 50;  //Create 50 enemies on stack
 	int enemyIterator = 0;
 	int enemyType; //random num for Bomber or shooter
 
+
+	float upTotal = 0; //30
 	Music mTheme;
 
 	// upgrade variables

@@ -166,18 +166,19 @@ void Player::update(float elapsedTime, Clock imgclock)
 		else
 			stopProjectile(i);
 	}
+
 }
 
 void Player::upgradeSpeed()
 {
 	// 20% speed upgrade
-	m_Speed += (START_SPEED * .2);
+	m_Speed = 400;
 }
 
 void Player::upgradeProjSpeed()
 {
 	// 20% projectile speed upgrade
-	clipSpeed += (clipSpeed * .2);
+	clipSpeed = 100;
 }
 
 void Player::increaseHealthLevel(int amount)
@@ -217,4 +218,19 @@ void Player::stopProjectile(int i)
 void Player::resetTimeToShoot()
 {
 	timeToShoot = 0;
+}
+
+void Player::upgradeTime(Clock upClock)
+{
+	upTime1 = upClock.getElapsedTime();
+
+}
+void Player::updateUpgrade(Clock upClock)
+{
+	upTime2 = upClock.getElapsedTime();
+	if (upTime2.asSeconds() > upTime1.asSeconds() + 15)
+	{
+		m_Speed = START_SPEED;
+		clipSpeed = 300;
+	}
 }

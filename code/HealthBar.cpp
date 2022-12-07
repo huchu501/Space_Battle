@@ -6,6 +6,7 @@ HealthBar::HealthBar()
 	size.x = 7.5;
 	size.y = 4.5;
 	heartCount = 10;
+
 }
 
 void HealthBar::updateHealthBar(int playerHeartNum)
