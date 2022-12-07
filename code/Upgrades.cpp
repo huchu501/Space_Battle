@@ -27,43 +27,6 @@ void Upgrades::setType(int type)
 	}
 }
 
-void Upgrades::spawnPos()
-{
-
-	int x1 = rand() % 1801 + 100;
-	int y1 = rand() % 701 + 300;
-	spawned = true;
-	upgradeSprite.setPosition(x1, y1);
-
-}
-
-void Upgrades::spawnTime(float elaspedTime)
-{
-	// update spawn time
-	if (spawned)
-	{
-		secSinceSpawn += elaspedTime;
-	}
-	else
-	{
-		secSinceDespawn += elaspedTime;
-	}
-
-	// hide upgrades?
-	if (secSinceSpawn > secToLive && spawned)
-	{ // remove upgrades
-		spawned = false;
-		secSinceDespawn = 0;
-	}
-	if (secSinceDespawn > secToWait && !spawned)
-	{ // show upgrades
-		spawned = true;
-		secSinceSpawn = 0;
-	}
-
-	float timePlus30 = elaspedTime + 30;
-}
-
 int Upgrades::pickup()
 {
 	spawned = false;
@@ -81,12 +44,7 @@ Sprite Upgrades::getSprite()
 	return upgradeSprite;
 }
 
-bool Upgrades::isSpawned()
-{
-	return spawned;
-}
 void Upgrades::sendShadowRealm()
 {
 	upgradeSprite.setPosition(4000, 6000);
 }
-

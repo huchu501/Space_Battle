@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "Player.h"
+
 Engine::Engine()
 {
 	state = State::MENU; //Set game to menu view
@@ -36,31 +37,3 @@ Engine::Engine()
 		}
 	}
 }
-void Engine::run()
-{
-	//restart clocks before main game loop:
-	clock.restart();
-	bgClock.restart();
-
-	while (window.isOpen())
-	{
-
-		// update time
-		Time dt = clock.restart();
-		// keep on updating the total game time
-		gameTimeTotal += dt;
-		// convert float to seconds
-		float dtAsSeconds = dt.asSeconds();
-
-		input();
-		updatePlayers(dtAsSeconds);
-		updateEnemies(dtAsSeconds);
-		updateProjCollisions();
-		updateShipCollisions();
-		window.clear();
-		drawPLAYING();
-		drawELSE();
-		window.display();
-	}
-}
-

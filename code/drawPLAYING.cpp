@@ -26,7 +26,7 @@ void Engine::drawPLAYING()
 			window.draw(player2.getProjectileSprite(i));
 		}
 
-		//Draw enemies and there projectiles
+		//Draw enemies and the re projectiles
 		for (int i = 0; i < numOfEnemy; i++)
 		{
 			window.draw(enemyContainer[i]->getSprite());
@@ -39,13 +39,9 @@ void Engine::drawPLAYING()
 				}
 			}
 		}
-
-		// DRAW ON HUD VIEW
-		//window.setView(hudView); DONT NEED THIS
 		// hud elements
 		window.draw(hud.getScoreText()); //UNCOMMENT THIS TO SHOW SCORE
 		window.draw(healthBar.getHealthBar());
 
 	}
-	//window.display();
 }

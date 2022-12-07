@@ -26,12 +26,10 @@ void EnemyB1::hit()
     m_Health--;
     if (m_Health <= 0)
     {
-        // dead, send to coordinates 5000,5000
-        sendShadowRealm();
+        sendShadowRealm(); // dead, send to coordinates 5000,5000
     }
     // injured but not dead yet
 }
-
 void EnemyB1::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
 {
     float playerX = playerLocation.x;
@@ -41,7 +39,6 @@ void EnemyB1::update(float elapsedTime, Vector2f playerLocation, Clock imgclock)
     if (playerY > m_Position.y) { m_Position.y = m_Position.y + m_Speed * elapsedTime; }
     if (playerX < m_Position.x) { m_Position.x = m_Position.x - m_Speed * elapsedTime; }
     if (playerY < m_Position.y) { m_Position.y = m_Position.y - m_Speed * elapsedTime; }
-
     m_Sprite.setPosition(m_Position);
 
     float angle = (atan2(playerY - m_Position.y, playerX - m_Position.x) * 180) / 3.141;
@@ -52,4 +49,3 @@ Sprite EnemyB1::getProjSprite(int i) { return emptySprite; }
 void EnemyB1::stopProjectile() {}
 void EnemyB1::updateProjectile(float elapsedTime, Vector2f playerLocation, Clock imgclock) {}
 FloatRect EnemyB1::getProjectilePosition(int i) { return getPosition(); }
-

@@ -107,47 +107,37 @@ void Player::update(float elapsedTime, Clock imgclock)
 	{
 		m_Position.y -= m_Speed * elapsedTime;
 	}
-
 	if (m_DownPressed)
 	{
 		m_Position.y += m_Speed * elapsedTime;
 	}
-
 	if (m_RightPressed)
 	{
 		m_Position.x += m_Speed * elapsedTime;
 	}
-
 	if (m_LeftPressed)
 	{
 		m_Position.x -= m_Speed * elapsedTime;
 	}
 
 	m_Sprite.setPosition(m_Position);
-
-
 	// Keep the player in the space
 	if (m_Position.x > m_Space.width)
 	{
 		m_Position.x = m_Space.width;
 	}
-
 	if (m_Position.x < m_Space.left)
 	{
 		m_Position.x = m_Space.left;
 	}
-
 	if (m_Position.y > m_Space.height)
 	{
 		m_Position.y = m_Space.height;
 	}
-
 	if (m_Position.y < m_Space.top)
 	{
 		m_Position.y = m_Space.top;
 	}
-
-
 	if (m_SpacePressed && updateProjTime.asMilliseconds() > timeToShoot)
 	{
 			timeToShoot = updateProjTime.asMilliseconds() + clipSpeed;
@@ -156,7 +146,6 @@ void Player::update(float elapsedTime, Clock imgclock)
 				if (clip > 99) //99
 					clip = 0;
 	}
-
 	for (int i = 0; i < p1.size(); i++)
 	{
 		if (p1[i]->isInFlight())
@@ -166,7 +155,6 @@ void Player::update(float elapsedTime, Clock imgclock)
 		else
 			stopProjectile(i);
 	}
-
 }
 
 void Player::upgradeSpeed()

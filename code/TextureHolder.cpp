@@ -40,5 +40,4 @@ Texture& TextureHolder::GetTexture(string const& filename)
 		// return the texture
 		return texture;
 	}
-
 }

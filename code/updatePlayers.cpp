@@ -25,20 +25,17 @@ void Engine::updatePlayers(float dtAsSeconds)
 		upClock.restart();
 		upTotal = 0;
 	}
-	
+
 	if (state == State::PLAYING)
-	{
-		// update the two players and score
+	{   // update score, players, healthBar, upgrades
 		stringstream ssScore;
 		ssScore << "Score:" << score;
 		ssScore.str();
 		hud.setScoreText(ssScore.str());
 		player1.update(dtAsSeconds, bgClock);
 		player2.update(dtAsSeconds, bgClock);
-		// update healthBar
-		healthBar.updateHealthBar(player1.getHealth());
-		// end the game when health is 0
-		if (healthBar.getHeartCount() == 0) { state = State::GAME_OVER; }
+		healthBar.updateHealthBar(player1.getHealth());  // update healthBar
+		if (healthBar.getHeartCount() == 0) { state = State::GAME_OVER; }  // end the game when health is 0
 		// upgrades
 		player1.updateUpgrade(upClock);
 		player2.updateUpgrade(upClock);
@@ -48,7 +45,7 @@ void Engine::updatePlayers(float dtAsSeconds)
 			int num = rand() % 5;
 			if (num == 0 || num == 1)
 				speedUp.spawnPos();
-			else if (num == 2 || num ==3)
+			else if (num == 2 || num == 3)
 				projUp.spawnPos();
 			else if (num == 4)
 				healthUp.spawnPos();
@@ -56,4 +53,3 @@ void Engine::updatePlayers(float dtAsSeconds)
 		}
 	}
 }
-

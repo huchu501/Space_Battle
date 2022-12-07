@@ -33,27 +33,7 @@ Hud::Hud()
 	scoreText.setFillColor(Color::White);
 	scoreText.setPosition(1420, -20);	
 }
-// getters
-Text Hud::getMenuText()
-{
-	return menuText;
-}
-Text Hud::getMenuSubtext()
-{
-	return menuSubtext;
-}
-Text Hud::getScoreText()
-{
-	return scoreText;
-}
-Text Hud::getPausedText()
-{
-	return pausedText;
-}
-Text Hud::getGameOverText()
-{
-	return gameOverText;
-}
+
 // score updater
 void Hud::setScoreText(String text)
 {

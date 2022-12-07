@@ -82,4 +82,3 @@ void Player1::handleInput()
 		stopShoot();
 	}
 }
-

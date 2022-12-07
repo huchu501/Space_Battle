@@ -76,8 +76,10 @@ private:
 	void input();
 	void updatePlayers(float dtAsSeconds);
 	void updateEnemies(float dtAsSeconds);
-	void updateProjCollisions();
+	void updatePlayerProjCollisions();
+	void updateEnemyProjCollisions();
 	void updateShipCollisions();
+	void updateUpgradesCollisions();
 	void drawPLAYING();
 	void drawELSE();
 
