@@ -38,4 +38,4 @@
 : The game engine runs the main game loop when the player opens the game.
 
 ## Contribution
-Hussin Irfan & Jaeun (Eric) Sim from American River College CISP400 course
+Game created by Hussin Irfan & Jaeun (Eric) Sim.
