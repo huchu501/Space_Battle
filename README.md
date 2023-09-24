@@ -37,7 +37,5 @@
 12. Engine<br>
 : The game engine runs the main game loop when the player opens the game.
 
-
-## Installation
-
 ## Contribution
+Hussin Irfan & Jaeun (Eric) Sim from American River College CISP400 course
